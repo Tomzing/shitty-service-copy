@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="00d4d554-3f8f-4c83-8093-3405ceae7f17" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/shitty-service/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="shitty-service-copy" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/shitty-service" />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/shitty-service/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/shitty-service/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/shitty-service/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/shitty-service/vendor/composer" />
+      <path value="$PROJECT_DIR$/shitty-service/vendor/graylog2/gelf-php" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1aJDlcB3OTKKNdvYNd9EgpIndTP" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="00d4d554-3f8f-4c83-8093-3405ceae7f17" name="Default Changelist" comment="" />
+      <created>1586444954184</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1586444954184</updated>
+      <workItem from="1586444955296" duration="1475000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="796" y="165" key="SettingsEditor" timestamp="1586445135015">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="796" y="165" key="SettingsEditor/0.0.2560.1040@0.0.2560.1040" timestamp="1586445135015" />
+  </component>
+</project>
