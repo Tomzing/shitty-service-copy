@@ -12,8 +12,10 @@
     $password = $_GET["passord"];
     $studieretning = $_GET["studieretning"];
     $kull = $_GET["kull"];
+    $password = password_hash($password);
 
-    if (isset($name)) {
+
+if (isset($name)) {
         $stmtS = $con->prepare('SELECT id, brukernavn FROM student WHERE brukernavn = ?');
         $stmtS->bind_param('s', $name);
         $stmtS->execute();

@@ -2,16 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8322e5c-ee12-4f59-be8b-5b56ab08f7a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shitty-service.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shitty-service.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/innloggingBackend.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/innloggingBackend.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sendMelding.php" beforeDir="false" afterPath="$PROJECT_DIR$/sendMelding.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpscripts/registerBackendStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/registerBackendStudent.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
     </execution>
@@ -42,6 +44,15 @@
     <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/graylog2/gelf-php" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
   <component name="ProjectId" id="1WDyKAXaZqQQMbIRefmbww4bnln" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -90,6 +101,7 @@
       <workItem from="1580300209324" duration="1690000" />
       <workItem from="1583925480843" duration="5565000" />
       <workItem from="1584302243064" duration="4089000" />
+      <workItem from="1586449396530" duration="443000" />
     </task>
     <servers />
   </component>
