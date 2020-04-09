@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PhpIncludePathManager">
-    <include_path>
-      <path value="$PROJECT_DIR$/shitty-service/vendor/paragonie/constant_time_encoding" />
-      <path value="$PROJECT_DIR$/shitty-service/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/shitty-service/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/shitty-service/vendor/composer" />
-      <path value="$PROJECT_DIR$/shitty-service/vendor/graylog2/gelf-php" />
-    </include_path>
-  </component>
+  <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
 </project>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<style>
+    #wrapper{
+        flex-direction: column;
+        margin: 0 auto;
+        width: 50%;
+        border: 1px solid black;
+    }
+
+    body{
+        width: 100%;
+    }
+</style>
+<body>
+
+    <div id="wrapper" class="inboks">
+        <h1>Dokumentasjon</h1>
+        <p>Dokumentasjon for Prosjekt – utvikling<br>
+            ITF25019 Datasikkerhet i Utvikling og Drift<br>
+            Gruppe 09:<br>
+            Thomas Alexander Bøhn Eidsvaag, Sondre Endré Femmen,
+            Mattia Lerario, Trym Hegerland Moen, Kim Remy Sivertsen<br><br>
+            Steg 1:<br>
+            <br>
+            I begynnelsen av prosjekt utvikling begynte vi med de nødvendige installasjonene.
+             Etter kravspesifikasjon som ble tildelt var det pålagt å bruke MySQL og PHP på Apache-serveren.
+             <br>
+              Vi installerte derfor MySQL Administrator og PHP. Samtidig lastet vi ned Xrdp og Xfce for å håndtere server via Remote Desktop.
+              Videre lastet vi ned MySQL Workbench for å lage databasen vår via Remote Desktop.
+              <br>
+            Etter installasjonene på serveren begynte utviklingen av databasestrukturen. Tabellene for databasen:
+            Student     |     Foreleser     |     Admin     |     Fag     |     Chatlog     |      Actionlog     |     Svar<br>
+            Disse tabellene inneholder alle brukerdata og handlingsdata for applikasjonen. Admin, Student og Foreleser er tabeller som håndterer brukerens innloggingsinformasjon.
+             Chatlog, Actionlog og Svar håndterer alle handlinger som brukere utfører i applikasjonen. Fag kobler brukere til handlinger.
+            I Web-applikasjonen starter index.php med en innlogging for brukere av systemet, og en link til en registeringsside.
+             For å benytte seg av webapplikasjonen må bruker være innlogget med unntak av registeringssiden. Videre vil bruker komme til en meny for å velge hva bruker ønsker å gjøre.
+              De kan bytte passord, se fagene eller logge ut. Bytt passord-siden oppdaterer passordet ditt hvis ønskelig. 
+              Se fagene vil sende bruker til en meny for hvilke fag som er tilgjengelige. Ved å klikke på et fag sendes bruker til chatrommet for faget.
+               Her kan bruker sende melding til foreleser, kommentere på andres meldinger, eller rapportere meldinger og kommentarer med begrunnelse.
+            <br><br>
+            Installasjoners /m versjon:<br>
+            MySQL Administrator<br>
+            Xrdp<br>
+            phpAdmin <br>
+            Versjoner:<br>
+            Xfce4<br>
+            Apache 2.4.29<br>
+            PHP 7.3.13<br>
+            Ubuntu 18.04.03<br>
+            MySQL Workbench 6.3.8<br>
+            <br>
+             
+            <h2>Implementerte funksjoner på nettsiden:</h2><br>
+            •	Registrering<br>
+                &nbsp;&nbsp; o	Kan registrere seg selv som foreleser og student i vårt grensesnitt.<br>
+            •	Innlogging<br>
+            &nbsp;&nbsp;o	For studenter, forelesere og admins<br>
+            &nbsp;&nbsp;o	Alternativt “logge på” som gjest, som ikke krever brukernavn/passord.<br>
+            •	Sende melding<br>
+            &nbsp;&nbsp;o	Kan sende melding til et gitt fag som vil dukke opp på det faget sin «vegg». Kan også se svar til spesifikke kommentarer gitt på en vegg.<br>
+            &nbsp;&nbsp;o	Du trenger ikke å være innlogget for å sende melding, og da blir man en gjest.<br>
+            &nbsp;&nbsp;o	Er du logget på som foreleser/gjest og ser på kommentarer/svar gitt i vårt system så blir studenter anonyme. Studenter og admins kan se andre sine studenter sine brukernavn.<br>
+            &nbsp;&nbsp;o	Studenter kan velge å sende meldinger helt anonymt. Studentens brukernavn er fortsatt logget i databasen, men dukker ikke opp på siden for andre brukere.<br>
+            •	Rapportering av kommentarer<br>
+            &nbsp;&nbsp;o	Kan rapportere kommentarer og svar.<br>
+            &nbsp;&nbsp;o	Ingen metoder satt for håndtering av rapporteringer, men det blir logget til database.<br>
+            •	Aktivering av brukerkontoer<br>
+            &nbsp;&nbsp;o	Admins kan aktivere forelesere/studenter.<br>
+            &nbsp;&nbsp;o	Ikke implementert metoder for å hindre at uaktiverte brukere får logget på<br>
+            
+            <h2> Implementerte funksjoner i appen: Shitty Service AS 2 </h2><br>
+            •	Registrering<br>
+                &nbsp;&nbsp; o	Kan registrere seg selv som student i vårt grensesnitt.<br>
+            •	Innlogging<br>
+            &nbsp;&nbsp;o	For studenter<br>
+            &nbsp;&nbsp;o	Er bare lov å logge seg inn som student<br>
+            •	Sende melding<br>
+            &nbsp;&nbsp;o	Kan sende melding til et gitt fag ved å oppgi fagkode og foreleserID<br>
+            &nbsp;&nbsp;o	Studenter sender meldinger helt anonymt. Studentens brukernavn er fortsatt logget i databasen, men dukker ikke opp på siden for andre brukere.<br>
+            •	Rapportering av kommentarer<br>
+            Ingen funksjonalitet...
+            •	Aktivering av brukerkontoer<br>
+            &nbsp;&nbsp;o	Admins kan aktivere forelesere/studenter.<br>
+            &nbsp;&nbsp;o	Ikke implementert metoder for å hindre at uaktiverte brukere får logget på<br>
+            &nbsp;&nbsp;o	Studenter kan logge seg ut av appen :)<br>
+            </p>
+    </div>
+
+
+</body>
+</html>

@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-image:url("pattern.png");
+}
+
+div a{
+    margin-left: 30px;
+}
+
+#midtstill{
+    margin-left: 45%;
+
+    justify-self: center;
+}
+
+#wrapper{
+    background-color:white;
+    padding: 22px;
+    border: 1px solid black;
+    margin: 0 auto;
+    width: 41%;
+    margin-top: 40px;
+}
+
+
+
+.kuk{
+    height: 100px;
+}
+
+button{
+    padding: 3px 15px 3px 15px;
+    font-weight: bold;
+    background-color: rgba(95, 158, 160, 0.46);
+    font-size: 130%;
+    text-transform: uppercase;
+    border: solid 2px rgba(0, 0, 0, 0.62);
+    border-radius: 8px;
+    transition: 1s ;
+}
+
+button:hover{
+    border-color: #6ed8ff;
+    background-color: cadetblue;
+}
+
+
+
+
+h2{
+    text-align: center;
+
+}
+
+#regBox{
+    margin-top: 12px;
+    display:grid;
+    grid-template-rows: repeat(10%);
+
+}
+
+#regBox p {
+    text-align: center;
+}
+#txtA, #txtB{
+    font-weight: bold;
+}
+
+#login a{
+    margin: 15px 30px 15px 30px;
+
+}
+
+#regBox button{
+    width: 45%;
+    margin: 0 auto;
+}
+
+#regBox input{
+    width: 75%;
+    margin: 0 auto;
+}
+
+body{
+    margin: 0 auto;
+    width: 90%;
+
+}
+#login{
+    display: grid;
+    grid-template-areas:
+            "txtA inputA"
+            "txtB inputB"
+            "confirm reg";
+    grid-template-columns: 50%;
+    grid-templtate-rows: 30px, 30px, 30px;
+}
+#txtA{
+    grid-template-area: txtA;
+    margin-right: 5px;
+}
+#txtB{
+    grid-template-area: txtB;
+    margin-right: 5px;
+}
+#inputA{
+    grid-template-area: inputA;
+
+
+}
+#inputB{
+    grid-template-area: inputB;
+
+
+}
+#confirm{
+    grid-template-area: confirm;
+    margin: 5px;
+}
+#reg{
+    grid-template-area: reg;
+    text-align: center;
+    margin: 5px;
+}
+#feedback{
+    text-align: center;
+}
+
+#kommentar{
+    width: 100%;
+}
+
+@media only screen and (max-width: 500px){
+
+
+    #login{
+        display: grid;
+        grid-template-areas:
+                "txtA"
+                "inputA"
+                "txtB"
+                "inputB"
+                "confirm"
+                "reg";
+        grid-template-columns: 100%;
+        grid-templtate-rows: auto(30px;)
+    }
+    #wrapper{
+        padding: 22px;
+        width: 50%;
+        border: 1px solid black;
+        margin: 0 auto;
+        margin-top: 20%;
+    }
+    body{
+        width: 100%;
+    }
+
+}
+
+.kuk a{
+    margin-left: 20px;
+
+}
+
+.inboks{
+    display: flex;
+}
+
+.melding{
+    display:flex;
+    padding: 3px;
+    margin: 7px;
+    border-radius: 11px;
+    border: 1px solid grey;
+}
+
+
+.melding img{
+    border-radius: 10px;
+    margin-right: 10px;
+    height: 100px;
+    width: 100px;
+}
+#listeInboks{
+    display:flex;
+    flex-direction: column;
+    height:400px;
+}
+
+
+a:visited{
+    color: teal;
+}
+
+.action{
+    text-transform: uppercase;
+    color: red;
+    font-weight: bold;
+}
+
+.action:visited{
+    color:red;
+}
+
+#sok{
+    display: flex;
+    flex-direction: column;
+}
+
+#sok div{
+    display:flex;
+    justify-content: space-around;
+}
+
+#sok div input{
+    height: 20px;
+    margin:12px;
+}

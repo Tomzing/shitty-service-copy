@@ -1,0 +1,89 @@
+<?php 
+    session_start();
+
+    include("mysqliDB.php");
+    //Hvis fag pin ikke er satt, send personen tilbake
+    //if (!isset($_SESSION['gittPin'])) {
+    //    header('Location: gjestInputFagPin.php');
+    //    exit();
+    //}
+
+
+    $valgtFag = $_SESSION['valgtFag'];
+    $sendeAnonymt = $_POST['sendAnonymt'];
+    $idchatlog = $_SESSION['chatid'];
+
+    $brukertype = $_SESSION['typebruker'];
+
+
+    /*ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);*/
+    header("Access-Control-Allow-Origin: *");
+    //error_reporting();
+
+    $sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$valgtFag'";
+    $resultsFinnFag = $db->selectSQL($sqlFinnFag);
+
+    //Hvis brukernavn ikke er satt så er man en gjest
+    if(!isset($_SESSION["brukernavn"])) {
+        $date = date("Y-m-d H:i:s");
+
+        $avsenderID = 0;
+
+        $content = htmlentities($_POST['content']);
+    
+        $stmt = $con->prepare("INSERT INTO svar (idchatlog, content, timestamp, avsenderID, fagid, brukertype) VALUES (?,?,?,?,?,?)");
+        $con->set_charset("utf8");
+
+        $stmt->bind_Param("isssis", $idchatlog, $content, $date, $avsenderID, $valgtFag, $brukertype);
+
+        if($stmt->execute()) {
+            echo "Melding sendt";
+        }
+
+        $stmt->close();
+        $con->close();
+
+        //header("Location: ../svar.php?inputPin=".$inputPin."&chatid=".$idchatlog.);
+        header("Refresh:1; url=../svar.php");
+
+    }
+    else {
+        $date = date("Y-m-d H:i:s");
+
+        if($sendeAnonymt === "sendAnonymt") {
+            $brukertype = "gjest";
+            $avsenderID = $_SESSION["brukernavn"];
+        }
+        else if($brukertype === "foreleser") {
+            $avsenderID = $_SESSION["brukernavn"];
+            $brukertype = $_SESSION["brukernavn"];
+        }
+        else {
+            $avsenderID = $_SESSION["brukernavn"];
+            $brukertype = "student";
+        }
+
+
+        $content = htmlentities($_POST['content']);
+    
+        $stmt = $con->prepare("INSERT INTO svar (idchatlog, content, timestamp, avsenderID, fagid, brukertype) VALUES (?,?,?,?,?,?)");
+        $con->set_charset("utf8");
+
+        $stmt->bind_Param("isssis", $idchatlog, $content, $date, $avsenderID, $valgtFag, $brukertype);
+
+        if($stmt->execute()) {
+            echo "Melding sendt";
+        }
+
+        $stmt->close();
+        $con->close();
+
+        //header("Location: ../svar.php?inputPin=".$inputPin."&chatid=".$idchatlog.);
+        header("Refresh:1; url=../svar.php");
+
+    }
+
+
+?>
