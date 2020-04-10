@@ -45,16 +45,16 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
         $mail = new PHPMailer();
 
         $mail->IsSMTP(); // telling the class to use SMTP
-        $mail->Host       = "mail.leratechsolutions.com"; // SMTP server
+        $mail->Host       = "mattia@leratechsolutions.com"; // SMTP server
                             // enables SMTP debug information (for testing)
         // 1 = errors and messages
         // 2 = messages only
         $mail->SMTPAuth   = true;                  // enable SMTP authentication
-//$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+        //$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
         $mail->Host       = "mail.leratechsolutions.com";      // sets GMAIL as the SMTP server
         $mail->Port       = 465;                   // set the SMTP port for the GMAIL server
         $mail->Username   = "mattia@leratechsolutions.com";  // GMAIL username
-        $mail->Password   = "No996830950!";            // GMAIL password
+        $mail->Password   = "Rudy1992!";            // GMAIL password
 
         $mail->SetFrom('mattia@leratechsolutions.com', 'Gjennoppretting av Passord ShittyServiceAS');
 

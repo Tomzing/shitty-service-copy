@@ -42,21 +42,36 @@
     header("Access-Control-Allow-Origin: *");
     //error_reporting();
         
-    $sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
-    $resultsFinnFag = $db->selectSQL($sqlFinnFag);
+    //$sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
+    //$resultsFinnFag = $db->selectSQL($sqlFinnFag);
+
+    $stmtX = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
+    $stmtX->bind_param('i', $gittPin);
+    $stmtX->execute();
+    $stmtX->store_result();
+
+    $resultsFinnFag = $stmtX;
 
     //Hvis bruker av økten er enten en foreleser eller gjest så skal alle studenter være anonyme
     if($_SESSION["typebruker"] === "gjest" or $_SESSION["typebruker"] === "foreleser") {
-        $sqlFinnKommentarer = "SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = '$gittPin'";
-        $resultsFinnKommentarer = $db->selectSQL($sqlFinnKommentarer);
+        $stmtS = $con->prepare('SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = ?');
+        $stmtS->bind_param('i', $gittPin);
+        $stmtS->execute();
+        $stmtS->store_result();
+
+        $resultsFinnKommentarer =  $stmtS;
 
         $sqlFinnBruker = "SELECT id FROM student";
         $resultsFinnBruker = $db->selectSQL($sqlFinnBruker);    
     }
     //Hvis bruker av økten er enten en admin eller student så skal man kunne se hvem som har sendt hva, hvis mulig
     else {
-        $sqlFinnKommentarer = "SELECT * FROM chatlog WHERE fagid = '$gittPin'";
-        $resultsFinnKommentarer = $db->selectSQL($sqlFinnKommentarer);
+
+        $stmtS = $con->prepare('SELECT * FROM chatlog WHERE fagid = ?');
+        $stmtS->bind_param('i', $gittPin);
+        $stmtS->execute();
+        $stmtS->store_result();
+        $sqlFinnKommentarer = $stmtS;
 
         $sqlFinnBruker = "SELECT id, brukernavn, epost, studieretning, kull FROM student";
         $resultsFinnBruker = $db->selectSQL($sqlFinnBruker);
