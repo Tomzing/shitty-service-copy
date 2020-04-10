@@ -1,4 +1,4 @@
-<?php include "phptrym/db.php"; ?>
+<?php include "phpscripts/mysqliDB.php"; ?>
 
 <?php
 header("Access-Control-Allow-Origin: *");
@@ -33,7 +33,7 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
         $output='<p>Kjære Bruker,</p>';
         $output.='<p>Vennligst klikk på linken for å resette ditt passord.</p>';
         $output.='<p>-------------------------------------------------------------</p>';
-        $output.='<p><a href="https://app.vjshoppingguide.com/f7productapi/reset-password.php?key='.$key.'&email='.$email.'&action=reset" target="_blank"> https://158.39.188.209/ResetPassword/reset-password.php?key='.$key.'&email='.$email.'&action=reset</a></p>';
+        $output.='<p><a href="https://158.39.188.209/reset-password.php?key='.$key.'&email='.$email.'&action=reset" target="_blank"> https://158.39.188.209/ResetPassword/reset-password.php?key='.$key.'&email='.$email.'&action=reset</a></p>';
         $output.='<p>-------------------------------------------------------------</p>';
         $output.='<p>Please be sure to copy the entire link into your browser.The link will expire after 1 day for security reason.</p>';
         $output.='<p>If you did not request this forgotten password email, no action is needed, your password will not be reset. However, you may want to log into your account and change your security password as someone may have guessed it.</p>';
