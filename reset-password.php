@@ -1,5 +1,5 @@
 
-<?php include "phptrym/db.php"; ?>
+<?php include "phpscripts/mysqliDB.php"; ?>
 
 <?php
 if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
@@ -16,7 +16,7 @@ if (isset($_GET["key"]) && isset($_GET["email"]) && isset($_GET["action"])
     if ($row==""){
         $error .= '<h2>Invalid Link</h2>
 <p>Linken er ikke lenger valid eller har blitt deaktivert. Prøv å send inn på nytt.</p>
-<p><a href="https://158.39.188.209/PassReset/forgotpassword.php">
+<p><a href="https://158.39.188.209/forgotpassword.php">
 Klikk her</a>for å gjenopprette passord</p>';
     }else{
 
@@ -64,7 +64,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     }else{
         $pass1 = password_hash( $pass1, PASSWORD_BCRYPT);
 
-        $query2 ="UPDATE user SET password ='".$pass1."', created ='".$curDate."' WHERE email ='".$email."'";
+        $query2 ="UPDATE student SET password ='".$pass1."', opprettet ='".$curDate."' WHERE epost ='".$email."'";
         $endofres = $db->selectSQL($query2);
 
         $query3 = "DELETE FROM `passordreset` WHERE `email`='".$email."'";
