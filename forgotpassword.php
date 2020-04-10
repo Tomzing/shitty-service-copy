@@ -27,7 +27,7 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
         $key = md5(2418*2+$email);
         $addKey = substr(md5(uniqid(rand(),1)),3,10);
         $key = $key . $addKey;
-// Insert Temp Table
+        // Insert Temp Table
         $sel_insert_query = "INSERT INTO `passordreset` (`email`, `keypassord`, `expDate`) VALUES ('".$email."', '".$key."', '".$expDate."');";
         $results2 = $db->selectSQL($sel_insert_query);
         $output='<p>Kjære Bruker,</p>';
@@ -50,7 +50,7 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
         // 1 = errors and messages
         // 2 = messages only
         $mail->SMTPAuth   = true;                  // enable SMTP authentication
-//$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
+        //$mail->SMTPSecure = "tls";                 // sets the prefix to the servier
         $mail->Host       = "mail.leratechsolutions.com";      // sets GMAIL as the SMTP server
         $mail->Port       = 465;                   // set the SMTP port for the GMAIL server
         $mail->Username   = "mattia@leratechsolutions.com";  // GMAIL username

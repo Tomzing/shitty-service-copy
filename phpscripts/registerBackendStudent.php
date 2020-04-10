@@ -12,7 +12,8 @@
     $password = $_GET["passord"];
     $studieretning = $_GET["studieretning"];
     $kull = $_GET["kull"];
-    $password = password_hash($password);
+    echo $password;
+    $password = password_hash("etSaltSomIkkeKrenkerNoen"+$password, PASSWORD_DEFAULT);
 
 
 if (isset($name)) {
