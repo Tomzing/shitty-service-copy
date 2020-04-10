@@ -32,13 +32,8 @@ if (!isset($_POST['brukernavn'], $_POST['passord']) ) {
     die ('Fyll inn både brukernavn og passord din juksemaker!');
 }
 
-
         $passwordtobehashed = $_POST['passord'];
-        $passwordtobechecked = password_hash("etSaltSomIkkeKrenkerNoen"+$passwordtobehashed, PASSWORD_DEFAULT);
-
-
-
-
+        $passwordtobechecked = password_hash($passwordtobehashed, PASSWORD_BCRYPT);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
