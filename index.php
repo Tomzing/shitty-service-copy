@@ -53,6 +53,7 @@
     </form>
     <a id="reg" href="forgotpassword.php">Glemt Passord</a>
 
+
     <br>
 
     <div id="regBox"></div>

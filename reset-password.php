@@ -64,7 +64,7 @@ if(isset($_POST["email"]) && isset($_POST["action"]) &&
     }else{
         $pass1 = password_hash( $pass1, PASSWORD_BCRYPT);
 
-        $query2 ="UPDATE user SET password ='".$pass1."', created ='".$curDate."' WHERE email ='".$email."'";
+        $query2 ="UPDATE student SET password ='".$pass1."', opprettet ='".$curDate."' WHERE epost ='".$email."'";
         $endofres = $db->selectSQL($query2);
 
         $query3 = "DELETE FROM `passordreset` WHERE `email`='".$email."'";

@@ -10,7 +10,7 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
     if (!$email) {
         $error="<p>Invalid email address please type a valid email address!</p>";
     }else{
-        $sel_query = "SELECT * FROM user WHERE email='".$email."'";
+        $sel_query = "SELECT * FROM student WHERE epost='".$email."'";
         $results = $db->selectSQL($sel_query);
         $row = $results;
         if ($row==""){
@@ -28,7 +28,7 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
         $addKey = substr(md5(uniqid(rand(),1)),3,10);
         $key = $key . $addKey;
 // Insert Temp Table
-        $sel_insert_query = "INSERT INTO `passordreset` (`email`, `keypassord`, `expDate`) VALUES ('".$email."', '".$key."', '".$expDate."');";
+        $sel_insert_query = "INSERT INTO `passordreset` (`email`, `keypassord`, `expdate`) VALUES ('".$email."', '".$key."', '".$expDate."');";
         $results2 = $db->selectSQL($sel_insert_query);
         $output='<p>Kjære Bruker,</p>';
         $output.='<p>Vennligst klikk på linken for å resette ditt passord.</p>';
