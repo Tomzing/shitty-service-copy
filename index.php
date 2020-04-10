@@ -10,6 +10,19 @@
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
+<script src="https://www.google.com/recaptcha/api.js?render=6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA"></script>
+<script>
+    window.onload;
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA', {action: 'homepage'}).then(function(token) {
+            var recaptchaResponse = document.getElementById('recaptchaResponse');
+            recaptchaResponse.value = token;
+            console.log(recaptchaResponse.value);
+        });
+    });
+</script>
+
 <style>
     button{
         width: 100%;
@@ -29,6 +42,8 @@
         <input type="radio" name="velgStilling" value="student" checked="checked">Student
         <input type="radio" name="velgStilling" value="foreleser">Foreleser
         <input type="radio" name="velgStilling" value="admin">Administrator
+
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
 
         <a href="innloggetMeny.php"><button style="margin-left:0;" type="submit">login</button></a>
     </form>
