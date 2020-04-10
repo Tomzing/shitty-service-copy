@@ -51,7 +51,7 @@
     <form id="gjestInnlogging" action="phpscripts/gjestInnlogging.php" method="post">
         <a href="innloggetMeny.php"><button style="margin-left:0;" id="reg" type="submit" value="gjest">Gjest?</button></a>
     </form>
-    <a id="reg" href="glemtPass.php">Glemt Passord</a> 
+    <a id="reg" href="forgotpassword.php">Glemt Passord</a>
 
     <br>
 
