@@ -32,6 +32,8 @@ if (!isset($_POST['brukernavn'], $_POST['passord']) ) {
     die ('Fyll inn både brukernavn og passord din juksemaker!');
 }
 
+        $passwordtobehashed = $_POST['passord'];
+        $passwordtobechecked = password_hash($passwordtobehashed, PASSWORD_BCRYPT);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])) {
 
@@ -62,7 +64,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                         $stmt->fetch();
                         // Account exists, now we verify the password.
                         // Note: remember to use password_hash in your registration file to store the hashed passwords.
-                        if ($_POST['passord'] === $passord) {
+
+                        if (password_verify($passwordtobehashed,$passwordtobechecked)) {
                             // Verification success! User has loggedin!
                             // Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
                             session_regenerate_id();
@@ -109,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                         $stmt->fetch();
                         // Account exists, now we verify the password.
                         // Note: remember to use password_hash in your registration file to store the hashed passwords.
-                        if ($_POST['passord'] === $passord) {
+                        if (password_verify($passwordtobehashed,$passwordtobechecked)) {
                             // Verification success! User has loggedin!
                             // Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
                             session_regenerate_id();
@@ -146,7 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                         $stmt->fetch();
                         // Account exists, now we verify the password.
                         // Note: remember to use password_hash in your registration file to store the hashed passwords.
-                        if ($_POST['passord'] === $passord) {
+                        if (password_verify($passwordtobehashed,$passwordtobechecked)) {
                             // Verification success! User has loggedin!
                             // Create sessions so we know the user is logged in, they basically act like cookies but remember the data on the server.
                             session_regenerate_id();

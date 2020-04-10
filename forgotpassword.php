@@ -1,4 +1,4 @@
-<?php include "phpscripts/mysqliDB.php"; ?>
+<?php include "phptrym/db.php"; ?>
 
 <?php
 header("Access-Control-Allow-Origin: *");
@@ -10,7 +10,7 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
     if (!$email) {
         $error="<p>Invalid email address please type a valid email address!</p>";
     }else{
-        $sel_query = "SELECT * FROM student WHERE epost='".$email."'";
+        $sel_query = "SELECT * FROM user WHERE email='".$email."'";
         $results = $db->selectSQL($sel_query);
         $row = $results;
         if ($row==""){
@@ -27,13 +27,13 @@ if(isset($_POST["email"]) && (!empty($_POST["email"]))){
         $key = md5(2418*2+$email);
         $addKey = substr(md5(uniqid(rand(),1)),3,10);
         $key = $key . $addKey;
-// Insert Temp Table
-        $sel_insert_query = "INSERT INTO `passordreset` (`email`, `keypassord`, `expdate`) VALUES ('".$email."', '".$key."', '".$expDate."');";
+        // Insert Temp Table
+        $sel_insert_query = "INSERT INTO `passordreset` (`email`, `keypassord`, `expDate`) VALUES ('".$email."', '".$key."', '".$expDate."');";
         $results2 = $db->selectSQL($sel_insert_query);
         $output='<p>Kjære Bruker,</p>';
         $output.='<p>Vennligst klikk på linken for å resette ditt passord.</p>';
         $output.='<p>-------------------------------------------------------------</p>';
-        $output.='<p><a href="https://158.39.188.209/reset-password.php?key='.$key.'&email='.$email.'&action=reset" target="_blank"> https://158.39.188.209/ResetPassword/reset-password.php?key='.$key.'&email='.$email.'&action=reset</a></p>';
+        $output.='<p><a href="https://app.vjshoppingguide.com/f7productapi/reset-password.php?key='.$key.'&email='.$email.'&action=reset" target="_blank"> https://158.39.188.209/ResetPassword/reset-password.php?key='.$key.'&email='.$email.'&action=reset</a></p>';
         $output.='<p>-------------------------------------------------------------</p>';
         $output.='<p>Please be sure to copy the entire link into your browser.The link will expire after 1 day for security reason.</p>';
         $output.='<p>If you did not request this forgotten password email, no action is needed, your password will not be reset. However, you may want to log into your account and change your security password as someone may have guessed it.</p>';

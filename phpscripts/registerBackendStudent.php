@@ -7,12 +7,39 @@
     header("Access-Control-Allow-Origin: *");
     error_reporting();
 
-    $name = $_GET["brukernavn"];
+
+    function errormsg(){
+        echo "Du har oppgitt ugydlige tegn for brukernavn, studieretning eller kull. Her er kun tall og bokstaver tillat";
+        die();
+    }
+
+    $nameUse = $_GET['brukernavn'];
+    $studieUse = $_GET["studieretning"];
+    $kullUse = $_GET["kull"];
+    if($_GET['brukernavn'] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_GET['brukernavn'] )){
+        errormsg();
+    }else{
+        if($_GET["studieretning"] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_GET["studieretning"] )){
+            errormsg();
+        }else{
+            if($_GET["kull"] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_GET["kull"] )){
+                errormsg();
+            }
+        }
+    }
+
+    if (!filter_var($_GET["epost"], FILTER_VALIDATE_EMAIL)) {
+        echo "Eposten inneholde ugyldige tegn, eller er ikke skrevet korrekt";
+    }
+
+    $name = preg_replace( "/[^a-zA-Z0-9_]/", "", $nameUse);
     $epost = $_GET["epost"];
     $password = $_GET["passord"];
-    $studieretning = $_GET["studieretning"];
-    $kull = $_GET["kull"];
-    $password = password_hash($password);
+    $studieretning = preg_replace( "/[^a-zA-Z0-9_]/", "", $studieUse );
+    $kull = preg_replace( "/[^a-zA-Z0-9_]/", "", $kullUse );
+    echo $name;
+    $password = password_hash("etSaltSomIkkeKrenkerNoen"+$password, PASSWORD_BCRYPT);
+
 
 
 if (isset($name)) {
