@@ -7,6 +7,21 @@ include("mysqliDB.php");
 //    header('Location: gjestInputFagPin.php');
 //    exit();
 //}
+
+    // Build POST request:
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = '6LdUcegUAAAAADuXCiNmRXaU1rMQD4xdRjdmi7TO';
+    $recaptcha_response = $_POST['recaptcha_response'];
+
+    // Make and decode POST request:
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+
+    if ($recaptcha->score <= 0.5) {
+        echo 'Du feilet captchaen din dustemikkel';
+        die;
+    }
+
 $idChatLog = $_SESSION['chatId'];
 $comment = $_POST['content'];
 $isSvar = $_SESSION['isSvar'];

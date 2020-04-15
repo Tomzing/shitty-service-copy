@@ -11,7 +11,7 @@ $recaptcha_response = $_POST['recaptcha_response'];
 $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
 $recaptcha = json_decode($recaptcha);
 
-if ($recaptcha->score >= 0.5) {
+if ($recaptcha->score <= 0.5) {
     echo 'Du feilet captchaen din dustemikkel';
     die;
 }

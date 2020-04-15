@@ -16,6 +16,18 @@
         flex-direction: column;
     }
 </style>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA"></script>
+<script>
+    window.onload;
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA', {action: 'homepage'}).then(function(token) {
+            var recaptchaResponse = document.getElementById('recaptchaResponse');
+            recaptchaResponse.value = token;
+            console.log(recaptchaResponse.value);
+        });
+    });
+</script>
 <body>
 <div id="wrapper" >
     <h2>Si ifra!</h2>
@@ -37,7 +49,7 @@
     <form method="post" action="phpscripts/sendRapportScript.php">
         <span id="#txtA">Kontekst</span><textarea style="height:200px;font-size:14pt;" type=text name='content'></textarea>
         <button id="confirm">Rapporter</button> <a id="reg" href="inboks.php">Tilbake</a>
-
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
     </form>
 </div>
 

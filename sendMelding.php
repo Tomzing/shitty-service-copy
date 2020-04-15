@@ -35,6 +35,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css" type="text/css">
 </head>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA"></script>
+<script>
+    window.onload;
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA', {action: 'homepage'}).then(function(token) {
+            var recaptchaResponse = document.getElementById('recaptchaResponse');
+            recaptchaResponse.value = token;
+            console.log(recaptchaResponse.value);
+        });
+    });
+</script>
 <style>
     #wrapper{
         flex-direction: column;
@@ -48,6 +60,7 @@
             <span id="#txtA">Mottaker<p id="mottaker"></p></span>
             <span id="#txtA">Melding:</span><input style="height:200px;font-size:14pt;" type=text name="content"></input>
             <input type="checkbox" id="anonym" name="sendAnonymt" value="sendAnonymt">Sende anonymt?</input>
+            <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
             <button id="confirm">Bekreft</button> 
         </form>
         <div id="tilbakeKnapp">
