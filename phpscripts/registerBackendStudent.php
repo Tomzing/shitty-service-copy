@@ -38,7 +38,7 @@
     $studieretning = preg_replace( "/[^a-zA-Z0-9_]/", "", $studieUse );
     $kull = preg_replace( "/[^a-zA-Z0-9_]/", "", $kullUse );
     echo $name;
-    $password = password_hash("etSaltSomIkkeKrenkerNoen"+$password, PASSWORD_BCRYPT);
+    $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT);
 
 
 

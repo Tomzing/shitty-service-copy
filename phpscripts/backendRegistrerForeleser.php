@@ -16,12 +16,13 @@ if($_POST['brukernavn'] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_POST['brukerna
 
 if (!filter_var($_POST["epost"], FILTER_VALIDATE_EMAIL)) {
     echo "Eposten inneholde ugyldige tegn, eller er ikke skrevet korrekt";
+    die();
 }
 
 $brukernavn = $nameUse;
 $epost = $_POST["epost"];
 $password = $_POST["passord"];
-$password = password_hash("etSaltSomIkkeKrenkerNoen"+$password, PASSWORD_BCRYPT);
+$password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT);
 
 
 $currentDir = getcwd();
