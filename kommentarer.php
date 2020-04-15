@@ -52,7 +52,7 @@
 
     $resultsFinnFag = $stmtX;
 
-    //Hvis bruker av økten er enten en foreleser eller gjest så skal alle studenter være anonyme
+    //Hvis bruker av økten er enten en foreleser eller gjest så skal alle studenter være anonyme aaaa
     if($_SESSION["typebruker"] === "gjest" or $_SESSION["typebruker"] === "foreleser") {
         $stmtS = $con->prepare('SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = ?');
         $stmtS->bind_param('i', $gittPin);
