@@ -7,6 +7,20 @@
     header("Access-Control-Allow-Origin: *");
     error_reporting();
 
+    // Build POST request:
+    $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+    $recaptcha_secret = '6LdUcegUAAAAADuXCiNmRXaU1rMQD4xdRjdmi7TO';
+    $recaptcha_response = $_POST['recaptcha_response'];
+
+    // Make and decode POST request:
+    $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+    $recaptcha = json_decode($recaptcha);
+
+    if ($recaptcha->score <= 0.5) {
+        echo 'Du feilet captchaen din dustemikkel';
+        die;
+    }
+
 
     function errormsg(){
         echo "Du har oppgitt ugydlige tegn for brukernavn, studieretning eller kull. Her er kun tall og bokstaver tillat";
@@ -38,7 +52,7 @@
     $studieretning = preg_replace( "/[^a-zA-Z0-9_]/", "", $studieUse );
     $kull = preg_replace( "/[^a-zA-Z0-9_]/", "", $kullUse );
     echo $name;
-    $password = password_hash("etSaltSomIkkeKrenkerNoen"+$password, PASSWORD_BCRYPT);
+    $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT);
 
 
 

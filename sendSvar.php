@@ -50,6 +50,18 @@
         flex-direction: column;
     }
 </style>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA"></script>
+<script>
+    window.onload;
+
+    grecaptcha.ready(function() {
+        grecaptcha.execute('6LdUcegUAAAAAEaEyVtUMVUltxOTPsIGLg7GwdLA', {action: 'homepage'}).then(function(token) {
+            var recaptchaResponse = document.getElementById('recaptchaResponse');
+            recaptchaResponse.value = token;
+            console.log(recaptchaResponse.value);
+        });
+    });
+</script>
 <body>
 
     <div id="wrapper" class="inboks">
@@ -58,12 +70,14 @@
             <span id="#txtA">Mottaker<p id="mottaker"></p></span>
             <span id="#txtA">Melding:</span><input style="height:200px;font-size:14pt;" type=text name="content"></input>
             <input type="checkbox" id="anonym" name="sendAnonymt" value="sendAnonymt">Sende anonymt?</input>
+            <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
             <button id="confirm">Bekreft</button> 
             <div id="tilbakeKnapp">
                 <a id="reg" href="index.php">Tilbake</a>
             </div>
         </form>
     </div>
+
 
     <script>
 

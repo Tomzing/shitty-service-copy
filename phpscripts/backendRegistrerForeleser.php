@@ -2,6 +2,20 @@
 include("mysqliDB.php");
 header("Access-Control-Allow-Origin: *");
 
+// Build POST request:
+$recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
+$recaptcha_secret = '6LdUcegUAAAAADuXCiNmRXaU1rMQD4xdRjdmi7TO';
+$recaptcha_response = $_POST['recaptcha_response'];
+
+// Make and decode POST request:
+$recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
+$recaptcha = json_decode($recaptcha);
+
+if ($recaptcha->score <= 0.5) {
+    echo 'Du feilet captchaen din dustemikkel';
+    die;
+}
+
 function errormsg(){
     echo "Du har oppgitt ugydlige tegn for brukernavn. Her er kun tall og bokstaver tillat";
     die();
@@ -16,12 +30,13 @@ if($_POST['brukernavn'] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_POST['brukerna
 
 if (!filter_var($_POST["epost"], FILTER_VALIDATE_EMAIL)) {
     echo "Eposten inneholde ugyldige tegn, eller er ikke skrevet korrekt";
+    die();
 }
 
 $brukernavn = $nameUse;
 $epost = $_POST["epost"];
 $password = $_POST["passord"];
-$password = password_hash("etSaltSomIkkeKrenkerNoen"+$password, PASSWORD_BCRYPT);
+$password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT);
 
 
 $currentDir = getcwd();
