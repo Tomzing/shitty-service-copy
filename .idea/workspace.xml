@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8322e5c-ee12-4f59-be8b-5b56ab08f7a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/backendRegistrerForeleser.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/backendRegistrerForeleser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/registerBackendStudent.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/registerBackendStudent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/sendRapportScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendRapportScript.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/rapporter.php" beforeDir="false" afterPath="$PROJECT_DIR$/rapporter.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sendMelding.php" beforeDir="false" afterPath="$PROJECT_DIR$/sendMelding.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sendSvar.php" beforeDir="false" afterPath="$PROJECT_DIR$/sendSvar.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpscripts/mysqliDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/mysqliDB.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
