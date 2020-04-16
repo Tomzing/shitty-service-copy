@@ -3,7 +3,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     error_reporting();*/
-    include("mysqliDB.php");
+    include("connectionTable.php");
+    lagCon("student","IA1vz6TNpdya6X8G");
     header("Access-Control-Allow-Origin: *");
     error_reporting();
 
