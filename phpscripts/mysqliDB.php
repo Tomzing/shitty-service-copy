@@ -20,17 +20,6 @@
     define( 'DB_NAME', 'virusnet' ); // set database name
     define( 'DISPLAY_DEBUG', false ); //display db errors?
 
-    function lagCon($user, $password) {
-        define('DB_HOST', 'localhost');
-        define('DB_USER', $user);
-        define('DB_PASS', $password);
-        define('DB_NAME', 'virusnet');
-        define('DISPLAY_DEBUG', false);
-
-        $con = mysqli_connect("localhost",$user,$password,"virusnet");
-
-        return $con;
-    }
 
     require_once( 'db.php' );
 

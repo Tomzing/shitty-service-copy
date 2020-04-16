@@ -1,6 +1,7 @@
 <?php
-include("mysqliDB.php");
+include("connectionTable.php");
 header("Access-Control-Allow-Origin: *");
+lagCon("foreleser","ITyu8uXEVmXxA3iX");
 
 // Build POST request:
 $recaptcha_url = 'https://www.google.com/recaptcha/api/siteverify';
