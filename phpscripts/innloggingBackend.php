@@ -106,8 +106,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
                             $logger->notice("IP: " . getUserIpAddr() . " student: " . $_SESSION['brukernavn'] . " har logget inn");
                             //$logger->pushHandler($handler);
-
+                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
+
                         } else {
                             echo 'Feil passord :(';
                         }
@@ -163,7 +165,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             setcookie('Brukernavn', $_POST['brukernavn']);
                             echo 'Velkommen inn, ' . $_SESSION['brukernavn'] . '!';
                             $logger->notice("IP: " . getUserIpAddr() . " foreleser: " . $_SESSION['brukernavn'] . " har logget inn");
+                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
+
                         }
                         else {
                             echo 'Feil passord :(';
@@ -221,6 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             setcookie('Brukernavn', $_POST['brukernavn']);
                             echo 'Velkommen inn, ' . $_SESSION['brukernavn'] . '!';
                             $logger->notice("IP: " . getUserIpAddr() . " admin: " . $_SESSION['brukernavn'] . " har logget inn");
+                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
                         }
                         else {
