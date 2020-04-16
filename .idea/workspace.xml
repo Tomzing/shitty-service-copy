@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d8322e5c-ee12-4f59-be8b-5b56ab08f7a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/mysqliDB.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/mysqliDB.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,6 +108,7 @@
       <workItem from="1586790220153" duration="123000" />
       <workItem from="1586790378940" duration="4624000" />
       <workItem from="1586958983836" duration="602000" />
+      <workItem from="1587053321524" duration="328000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Reset Passord and forgotpassword.php files with the right links-">
       <created>1586536851280</created>
@@ -158,10 +160,10 @@
     </state>
     <state x="604" y="337" key="NewPhpFileDialog/0.0.1536.824@0.0.1536.824" timestamp="1579027902917" />
     <state x="755" y="425" key="NewPhpFileDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1579895166037" />
-    <state x="775" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1586958985430">
-      <screen x="0" y="0" width="2560" height="1040" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1587053321302">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1584302244840" />
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1587053321302" />
     <state x="775" y="300" key="com.intellij.ide.util.TipDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1586958985430" />
     <state x="581" y="300" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@0.0.1920.1040" timestamp="1579979139197" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1584306589290">
