@@ -48,13 +48,9 @@ $resultsFinnFag = [];
 $stmtA = $con->prepare('SELECT idfag,fag_navn,emnekode,foreleser,beskrivelse FROM fag WHERE idfag =  ?');
 $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
-$stmtA->store_result();
 $stmtA->bind_result($idfag,$fag_navn,$emnekode,$foreleser,$beskrivelse);
-$resultsFinnFag = array();
-while($stmtA->fetch()){
-    $resultsFinnFag[] = array("idfag"=>$idfag,"fag_navn"=>fag_navn,"emnekode"=>$emnekode,"foreleser"=>$foreleser,"beskrivelse"=>$beskrivelse);
-}
-mysqli_stmt_close($stmtA);
+$stmtA->fetch();
+
 
 
 
