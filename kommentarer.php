@@ -3,10 +3,10 @@ include("phpscripts/mysqliDB.php");
 header("Access-Control-Allow-Origin: *");
 
     //Hvis fag pin ikke er satt, send personen tilbake
-    if (!isset($_SESSION['gittPin'])) {
+   /* if (!isset($_SESSION['gittPin'])) {
         header('Location: gjestInputFagPin.php');
         exit();
-    }
+    }*/
 
     //I tilfelle man er på denne siden uten session, gi de gjest rettigheter
     if(!isset($_SESSION['typebruker'])) {
