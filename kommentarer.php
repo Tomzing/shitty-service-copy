@@ -55,6 +55,7 @@ if($stmtA == true){
 
     $pinResult = $stmtA->result_metadata();
     $resultsFinnFag = $pinResult->fetch_field();
+    $resultsFinnFag->name;
     $pinResult->close();
     $stmtA->close();
 }
