@@ -50,7 +50,7 @@ $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
 $stmtA->store_result();
 $stmtA->bind_result($gittPin);
-$resultsFinnFag = $stmtA->fetch();
+$resultsFinnFag = $stmtA->get_result();
 
 
 
