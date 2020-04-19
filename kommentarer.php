@@ -47,8 +47,10 @@
 
     $stmtX = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
     $stmtX->bind_param('i', $gittPin);
+    $stmtX->bind_result($gittPin);
     $stmtX->execute();
     $stmtX->store_result();
+    $stmX->fetch();
 
     $resultsFinnFag = $stmtX;
 
@@ -56,9 +58,10 @@
     if($_SESSION["typebruker"] === "gjest" or $_SESSION["typebruker"] === "foreleser") {
         $stmtS = $con->prepare('SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = ?');
         $stmtS->bind_param('i', $gittPin);
+        $stmtS->bind_result($gittPin);
         $stmtS->execute();
         $stmtS->store_result();
-
+        $stmS->fetch();
         $resultsFinnKommentarer =  $stmtS;
 
         $sqlFinnBruker = "SELECT id FROM student";
@@ -84,8 +87,8 @@
     $resultsFinnForeleser = $db->selectSQL($sqlFinnForeleser);
 ?>
 <script>
-    var json = <?php echo json_encode($resultsFinnFag); ?>;
-    var jsonKommentarer = <?php echo json_encode($resultsFinnKommentarer); ?>;
+    var json = <?php echo json_encode($stmsX); ?>;
+    var jsonKommentarer = <?php echo json_encode($stmtS); ?>;
     var jsonFinnBruker = <?php echo json_encode($resultsFinnBruker); ?>;
     var jsonFinnForeleser = <?php echo json_encode($resultsFinnForeleser); ?>;
 
