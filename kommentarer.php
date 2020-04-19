@@ -48,9 +48,9 @@ header("Access-Control-Allow-Origin: *");
 $stmtA = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
 $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
-$stmtA->store_result();
+$resultsFinnFag = $stmtA-> get_result();
+$resultsFinnFag = $stmtA -> fetch();
 
-$resultsFinnFag = mysqli_fetch_all($stmtA,MYSQLI_ASSOC);
 
 
 
