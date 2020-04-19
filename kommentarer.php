@@ -50,10 +50,13 @@ $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
 $stmtA->store_result();
 $stmtA->bind_result($gittPin);
-$resultsFinnFag = $stmtA->fetch();
-if($resultsFinnFag == true){
+$stmtA->fetch();
+if($stmtA == true){
 
-    mysqli_stmt_result_metadata ($stmtA);
+    $pinResult = $stmtA->result_metadata();
+    $resultsfinnPin = $pinResult->fetch_field();
+    $pinResult->close();
+    $stmtA->close();
 }
 else{
     echo "Feil Input pin angitt!";
@@ -94,7 +97,7 @@ else{
     $resultsFinnForeleser = $db->selectSQL($sqlFinnForeleser);
 ?>
 <script>
-    var json = <?php echo json_encode($resultsFinnBruker); ?>;
+    var json = <?php echo json_encode($resultsFinnPin); ?>;
     var jsonKommentarer = <?php echo json_encode($resultsFinnKommentarer); ?>;
     var jsonFinnBruker = <?php echo json_encode($resultsFinnBruker); ?>;
     var jsonFinnForeleser = <?php echo json_encode($resultsFinnForeleser); ?>;
