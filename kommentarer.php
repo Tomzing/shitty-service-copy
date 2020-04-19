@@ -48,14 +48,13 @@ header("Access-Control-Allow-Origin: *");
 $stmtA = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
 $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
-
-$pinResult = $stmtA->get_result();
+$stmtA->store_result();
+$stmtA->bind_result($col1,$col2);
 $resultsFinnFag = [];
-while($row = $pinResult -> fetch_assoc()){
-$resultsFinnFag[] = $row;
+while($stmtA->fetch()){
+$resultsFinnFag = array("fagid"=>$col1,"fagnavn"=>$col2);
 
 }
-$stmtA->close();
 
 
 
