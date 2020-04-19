@@ -45,24 +45,23 @@ header("Access-Control-Allow-Origin: *");
     //$sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
     //$resultsFinnFag = $db->selectSQL($sqlFinnFag);
 
-    $stmtX = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
-    $stmtX->bind_param('i', $gittPin);
-    $stmtX->bind_result($gittPin);
-    $stmtX->execute();
-    $stmtX->store_result();
+$stmtA = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
+$stmtA->bind_param('i', $gittPin);
+$stmtA->execute();
+$stmtA->store_result();
+$stmtA->bind_result($gittPin);
+$resultsFinnFag = $stmtA->fetch();
 
 
-    $resultsFinnFag = $stmtX;
+
 
     //Hvis bruker av økten er enten en foreleser eller gjest så skal alle studenter være anonyme aaaa
     if($_SESSION["typebruker"] === "gjest" or $_SESSION["typebruker"] === "foreleser") {
-        $stmtS = $con->prepare('SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = ?');
-        $stmtS->bind_param('i', $gittPin);
-        $stmtS->bind_result($gittPin);
-        $stmtS->execute();
-        $stmtS->store_result();
+        $resultsFinnKommentarer = $con->prepare('SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = ?');
+        $resultsFinnKommentarer->bind_param('i', $gittPin);
+        $resultsFinnKommentarer->execute();
+        $resultsFinnKommentarer->store_result();
 
-        $resultsFinnKommentarer =  $stmtS;
 
         $sqlFinnBruker = "SELECT id FROM student";
         $resultsFinnBruker = $db->selectSQL($sqlFinnBruker);    
