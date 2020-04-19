@@ -49,12 +49,8 @@ $stmtA = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
 $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
 $stmtA->store_result();
-$stmtA->bind_result($col1,$col2);
-$resultsFinnFag = [];
-while($stmtA->fetch()){
-$resultsFinnFag = array("fagid"=>$col1,"fagnavn"=>$col2);
+$resultsFinnFag = $stmtA->fetch_all();
 
-}
 
 
 
