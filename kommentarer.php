@@ -1,5 +1,5 @@
 <?php
-    session_start();
+
 
     //Hvis fag pin ikke er satt, send personen tilbake
     /*if (!isset($_SESSION['gittPin'])) {
