@@ -45,22 +45,17 @@ header("Access-Control-Allow-Origin: *");
     //$sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
     //$resultsFinnFag = $db->selectSQL($sqlFinnFag);
 $resultsFinnFag = [];
-$stmtA = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
+$stmtA = $con->prepare('SELECT idfag,fag_navn,emnekode,foreleser,beskrivelse FROM fag WHERE idfag =  ?');
 $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
 $stmtA->store_result();
-$numrows = $stmtA->num_rows;
 $stmtA->bind_result($idfag,$fag_navn,$emnekode,$foreleser,$beskrivelse);
-for($i =0; $i < $numrows,$i ++;){
-    $row = $stmtA->fetch();
-    $idfag = $row['idfag'];
-    $fag_navn = $row['fag_navn'];
-    $emnekode = $row['emnekode'];
-    $foreleser = $row['foreleser'];
-    $beskrivelse = $row['beskrivelse'];
-
-    $resultsFinnFag = ["idfag"=>$idfag,"fag_navn"=>$fag_navn,"emnekode"=>$emnekode,"foreleser"=>$foreleser,"beskrivelse"=>$beskrivelse];
+$resultsFinnFag = array();
+while($stmtA->fetch()){
+    $resultsFinnFag[] = array("idfag"=>$idfag,"fag_navn"=>fag_navn,"emnekode"=>$emnekode,"foreleser"=>$foreleser,"beskrivelse"=>$beskrivelse);
 }
+mysqli_stmt_close($stmtA);
+
 
 
 
@@ -100,7 +95,7 @@ for($i =0; $i < $numrows,$i ++;){
     $resultsFinnForeleser = $db->selectSQL($sqlFinnForeleser);
 ?>
 <script>
-    var json = <?php echo json_encode($resultsFinnFag); ?>;
+    var json = <?php echo json_encode(array("resultsFinnFag"=>$resultsFinnFag), JSON_UNESCAPED_UNICODE); ?>;
     var jsonKommentarer = <?php echo json_encode($resultsFinnKommentarer); ?>;
     var jsonFinnBruker = <?php echo json_encode($resultsFinnBruker); ?>;
     var jsonFinnForeleser = <?php echo json_encode($resultsFinnForeleser); ?>;
