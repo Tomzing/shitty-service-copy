@@ -50,7 +50,15 @@ $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
 $stmtA->store_result();
 $stmtA->bind_result($gittPin);
-$resultsFinnFag = $stmtA->get_result();
+$resultsFinnFag = $stmtA->fetch();
+if($resultsFinnFag == true){
+
+    mysqli_stmt_result_metadata ($stmtA);
+}
+else{
+    echo "Feil Input pin angitt!";
+}
+
 
 
 
