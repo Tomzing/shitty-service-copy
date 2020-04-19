@@ -1,11 +1,12 @@
 <?php
-
+include("phpscripts/mysqliDB.php");
+header("Access-Control-Allow-Origin: *");
 
     //Hvis fag pin ikke er satt, send personen tilbake
-    /*if (!isset($_SESSION['gittPin'])) {
+    if (!isset($_SESSION['gittPin'])) {
         header('Location: gjestInputFagPin.php');
         exit();
-    }*/
+    }
 
     //I tilfelle man er på denne siden uten session, gi de gjest rettigheter
     if(!isset($_SESSION['typebruker'])) {
@@ -38,8 +39,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
     */
-    include("phpscripts/mysqliDB.php");
-    header("Access-Control-Allow-Origin: *");
+
     //error_reporting();
         
     //$sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
