@@ -50,7 +50,7 @@ header("Access-Control-Allow-Origin: *");
     $stmtX->bind_result($gittPin);
     $stmtX->execute();
     $stmtX->store_result();
-    $stmX->fetch();
+
 
     $resultsFinnFag = $stmtX;
 
@@ -61,7 +61,7 @@ header("Access-Control-Allow-Origin: *");
         $stmtS->bind_result($gittPin);
         $stmtS->execute();
         $stmtS->store_result();
-        $stmS->fetch();
+
         $resultsFinnKommentarer =  $stmtS;
 
         $sqlFinnBruker = "SELECT id FROM student";
@@ -87,8 +87,8 @@ header("Access-Control-Allow-Origin: *");
     $resultsFinnForeleser = $db->selectSQL($sqlFinnForeleser);
 ?>
 <script>
-    var json = <?php echo json_encode($stmsX); ?>;
-    var jsonKommentarer = <?php echo json_encode($stmtS); ?>;
+    var json = <?php echo json_encode($resultsFinnBruker); ?>;
+    var jsonKommentarer = <?php echo json_encode($resultsFinnKommentarer); ?>;
     var jsonFinnBruker = <?php echo json_encode($resultsFinnBruker); ?>;
     var jsonFinnForeleser = <?php echo json_encode($resultsFinnForeleser); ?>;
 
