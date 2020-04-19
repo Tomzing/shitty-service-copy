@@ -50,18 +50,12 @@ $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
 $stmtA->store_result();
 $stmtA->bind_result($gittPin);
-$stmtA->fetch();
-if($stmtA == true){
+$resultsFinnFag = [];
+while($stmtA->fetch()){
+$resultsFinnFag = array("gittPin"=>$gittPin);
 
-    $pinResult = $stmtA->result_metadata();
-    $resultsFinnFag = $pinResult->fetch_field();
-    $resultsFinnFag->fetchArray();
-    $pinResult->close();
-    $stmtA->close();
 }
-else{
-    echo "Feil Input pin angitt!";
-}
+
 
 
 
