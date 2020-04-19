@@ -44,12 +44,24 @@ header("Access-Control-Allow-Origin: *");
         
     //$sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
     //$resultsFinnFag = $db->selectSQL($sqlFinnFag);
-
+$resultsFinnFag = [];
 $stmtA = $con->prepare('SELECT * FROM fag WHERE idfag =  ?');
 $stmtA->bind_param('i', $gittPin);
 $stmtA->execute();
-$resultsFinnFag = $stmtA-> get_result();
-$resultsFinnFag = $stmtA -> fetch();
+$stmtA->store_result();
+$numrows = $stmtA->num_rows;
+$stmtA->bind_result($idfag,$fag_navn,$emnekode,$foreleser,$beskrivelse);
+for($i =0; $i < $numrows,$i ++;){
+    $row = $stmtA->fetch();
+    $idfag = $row['idfag'];
+    $fag_navn = $row['fag_navn'];
+    $emnekode = $row['emnekode'];
+    $foreleser = $row['foreleser'];
+    $beskrivelse = $row['beskrivelse'];
+
+    $resultsFinnFag = ["idfag"=>$idfag,"fag_navn"=>$fag_navn,"emnekode"=>$emnekode,"foreleser"=>$foreleser,"beskrivelse"=>$beskrivelse];
+}
+
 
 
 
