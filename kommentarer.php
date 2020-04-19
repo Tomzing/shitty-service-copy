@@ -54,7 +54,7 @@ $stmtA->fetch();
 if($stmtA == true){
 
     $pinResult = $stmtA->result_metadata();
-    $resultsfinnPin = $pinResult->fetch_field();
+    $resultsFinnFag = $pinResult->fetch_field();
     $pinResult->close();
     $stmtA->close();
 }
@@ -97,7 +97,7 @@ else{
     $resultsFinnForeleser = $db->selectSQL($sqlFinnForeleser);
 ?>
 <script>
-    var json = <?php echo json_encode($resultsFinnPin); ?>;
+    var json = <?php echo json_encode($resultsFinnFag); ?>;
     var jsonKommentarer = <?php echo json_encode($resultsFinnKommentarer); ?>;
     var jsonFinnBruker = <?php echo json_encode($resultsFinnBruker); ?>;
     var jsonFinnForeleser = <?php echo json_encode($resultsFinnForeleser); ?>;
