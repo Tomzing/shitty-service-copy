@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
     session_start();
 
 $DATABASE_HOST = 'localhost';
@@ -147,7 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             $aktivitet = "loginfail";
                             $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
                             $stmt = $conMysqli->prepare($sql);
-                            $stmt->bind_param("na",$_POST["brukernavn"],$aktivitet);
+                            $stmt->bind_param("ss",$_POST["brukernavn"],$aktivitet);
 
                             $stmt->execute();
                             $stmt->close();
@@ -221,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             $aktivitet = "loginfail";
                             $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
                             $stmt = $conMysqli->prepare($sql);
-                            $stmt->bind_param("na",$_POST["brukernavn"],$aktivitet);
+                            $stmt->bind_param("ss",$_POST["brukernavn"],$aktivitet);
 
                             $stmt->execute();
                             $stmt->close();
@@ -294,7 +298,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             $aktivitet = "loginfail";
                             $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
                             $stmt = $conMysqli->prepare($sql);
-                            $stmt->bind_param("na",$_POST["brukernavn"],$aktivitet);
+                            $stmt->bind_param("ss",$_POST["brukernavn"],$aktivitet);
 
                             $stmt->execute();
                             $stmt->close();
