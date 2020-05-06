@@ -17,7 +17,7 @@
     $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
     $recaptcha = json_decode($recaptcha);
 
-    if ($recaptcha->score >= 0.5) {
+    if ($recaptcha->score <= 0.5) {
         echo 'Du feilet captchaen din dustemikkel';
         die;
     }
@@ -32,7 +32,7 @@
     /*ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);*/
-    header("Access-Control-Allow-Origin: *");
+    //header("Access-Control-Allow-Origin: *");
     //error_reporting();
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'fag';
