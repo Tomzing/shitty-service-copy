@@ -1,7 +1,31 @@
 <?php
     session_start();
 
-    
+$DATABASE_HOST = 'localhost';
+$DATABASE_USER = 'aktivitet';
+$DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
+$DATABASE_NAME = 'virusnet';
+// Try and connect using the info above.
+$conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+$conMysqli->set_charset("utf8");
+if (mysqli_connect_errno() ) {
+    // If there is an error with the connection, stop the script and display the error.
+    die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+}
+
+
+$sql = 'SELECT COUNT(*) FROM aktivitet WHERE brukernavn = ? AND tid < (NOW() - INTERVAL 10 MINUTE)';
+$stmt = $conMysqli->prepare($sql);
+$stmt->bind_param("b", $_POST["brukernavn"]);
+$stmt->execute();
+$stmt->store_result();
+$nrows = $stmt->num_rows;
+$stmt->close();
+
+
+if($nrows >= 5) die('Nå har du forsøkt å logge på for mange ganger. Ta deg et velfortjent runk før skrivekrampa tar deg.');
+$conMysqli->close();
+
     /*ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -56,19 +80,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                 $DATABASE_PASS = 'IA1vz6TNpdya6X8G';
                 $DATABASE_NAME = 'virusnet';
                 // Try and connect using the info above.
-                $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-                $conMysqli->set_charset("utf8");
+                $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                $con->set_charset("utf8");
                 if (mysqli_connect_errno() ) {
                     // If there is an error with the connection, stop the script and display the error.
                     die ('Failed to connect to MySQL: ' . mysqli_connect_error());
                 }
-
-                $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
-                define( 'DB_HOST', 'localhost' ); // set database host
-                define( 'DB_USER', 'student' ); // set database user
-                define( 'DB_PASS', 'IA1vz6TNpdya6X8G' ); // set database password
-                define( 'DB_NAME', 'virusnet' ); // set database name
-                define( 'DISPLAY_DEBUG', false ); //display db errors?
 
                 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
                 if ($stmt = $con->prepare('SELECT id, passord FROM student WHERE brukernavn = ?')) {
@@ -111,12 +128,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             header("Refresh:2; url=../innloggetMeny.php");
 
                         } else {
+
                             echo 'Feil passord :(';
+
+                            $con->close();
+
+                            $DATABASE_HOST = 'localhost';
+                            $DATABASE_USER = 'aktivitet';
+                            $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
+                            $DATABASE_NAME = 'virusnet';
+// Try and connect using the info above.
+                            $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                            $conMysqli->set_charset("utf8");
+                            if (mysqli_connect_errno() ) {
+                                // If there is an error with the connection, stop the script and display the error.
+                                die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+                            }
+                            $aktivitet = "loginfail";
+                            $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
+                            $stmt = $conMysqli->prepare($sql);
+                            $stmt->bind_param("na",$_POST["brukernavn"],$aktivitet);
+
+                            $stmt->execute();
+                            $stmt->close();
                         }
                     } else {
                         echo 'Feil brukernavn :(';
                     }
                     $stmt->close();
+                    $con->close();
                 }
             }
             else if($selected_val === "foreleser") {
@@ -126,19 +166,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                 $DATABASE_PASS = 'ITyu8uXEVmXxA3iX';
                 $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-                $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-                $conMysqli->set_charset("utf8");
+                $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                $con->set_charset("utf8");
                 if (mysqli_connect_errno() ) {
                     // If there is an error with the connection, stop the script and display the error.
                     die ('Failed to connect to MySQL: ' . mysqli_connect_error());
                 }
 
-                $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
-                define( 'DB_HOST', 'localhost' ); // set database host
-                define( 'DB_USER', 'foreleser' ); // set database user
-                define( 'DB_PASS', 'ITyu8uXEVmXxA3iX' ); // set database password
-                define( 'DB_NAME', 'virusnet' ); // set database name
-                define( 'DISPLAY_DEBUG', false ); //display db errors?
 
 
                 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
@@ -171,12 +205,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                         }
                         else {
                             echo 'Feil passord :(';
+                            $con->close();
+
+                            $DATABASE_HOST = 'localhost';
+                            $DATABASE_USER = 'aktivitet';
+                            $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
+                            $DATABASE_NAME = 'virusnet';
+// Try and connect using the info above.
+                            $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                            $conMysqli->set_charset("utf8");
+                            if (mysqli_connect_errno() ) {
+                                // If there is an error with the connection, stop the script and display the error.
+                                die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+                            }
+                            $aktivitet = "loginfail";
+                            $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
+                            $stmt = $conMysqli->prepare($sql);
+                            $stmt->bind_param("na",$_POST["brukernavn"],$aktivitet);
+
+                            $stmt->execute();
+                            $stmt->close();
                         }
 
                     } else {
                         echo 'Feil brukernavn :(';
                     }
                     $stmt->close();
+                    $con->close();
                 }
             }
             else if($selected_val === "admin") {
@@ -186,19 +241,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                 $DATABASE_PASS = 'kbp5V8Nmb8ry6EZf';
                 $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-                $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-                $conMysqli->set_charset("utf8");
+                $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                $con->set_charset("utf8");
                 if (mysqli_connect_errno() ) {
                     // If there is an error with the connection, stop the script and display the error.
                     die ('Failed to connect to MySQL: ' . mysqli_connect_error());
                 }
-
-                $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
-                define( 'DB_HOST', 'localhost' ); // set database host
-                define( 'DB_USER', 'admin' ); // set database user
-                define( 'DB_PASS', 'kbp5V8Nmb8ry6EZf' ); // set database password
-                define( 'DB_NAME', 'virusnet' ); // set database name
-                define( 'DISPLAY_DEBUG', false ); //display db errors?
 
 
                 // Prepare our SQL, preparing the SQL statement will prevent SQL injection.
@@ -230,12 +278,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                         }
                         else {
                             echo 'Feil passord :(';
+                            $con->close();
+
+                            $DATABASE_HOST = 'localhost';
+                            $DATABASE_USER = 'aktivitet';
+                            $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
+                            $DATABASE_NAME = 'virusnet';
+// Try and connect using the info above.
+                            $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                            $conMysqli->set_charset("utf8");
+                            if (mysqli_connect_errno() ) {
+                                // If there is an error with the connection, stop the script and display the error.
+                                die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+                            }
+                            $aktivitet = "loginfail";
+                            $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
+                            $stmt = $conMysqli->prepare($sql);
+                            $stmt->bind_param("na",$_POST["brukernavn"],$aktivitet);
+
+                            $stmt->execute();
+                            $stmt->close();
                         }
 
                     } else {
                         echo 'Feil brukernavn :(';
                     }
                     $stmt->close();
+                    $con->close();
                 }
             }
         } else {
