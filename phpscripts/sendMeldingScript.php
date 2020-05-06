@@ -1,6 +1,7 @@
 <?php 
     session_start();
 
+    include("db.php");
 
     //Hvis fag pin ikke er satt, send personen tilbake
     //if (!isset($_SESSION['gittPin'])) {
@@ -17,7 +18,7 @@
     $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
     $recaptcha = json_decode($recaptcha);
 
-    if ($recaptcha->score >= 0.5) {
+    if ($recaptcha->score <= 0.5) {
         echo 'Du feilet captchaen din dustemikkel';
         die;
     }
@@ -28,28 +29,30 @@
 
     /*ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);*/
+    error_reporting(E_ALL);
     header("Access-Control-Allow-Origin: *");
-    error_reporting();
+    error_reporting();*/
 
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'fag';
-$DATABASE_PASS = 'pfmrtszv7855z0AR';
-$DATABASE_NAME = 'virusnet';
-// Try and connect using the info above.
-$conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-$conMysqli->set_charset("utf8");
-if (mysqli_connect_errno() ) {
-    // If there is an error with the connection, stop the script and display the error.
-    die ('Failed to connect to MySQL: ' . mysqli_connect_error());
-}
+    $DATABASE_HOST = 'localhost';
+    $DATABASE_USER = 'fag';
+    $DATABASE_PASS = 'pfmrtszv7855z0AR';
+    $DATABASE_NAME = 'virusnet';
+    // Try and connect using the info above.
+    $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+    $conMysqli->set_charset("utf8");
+    if (mysqli_connect_errno() ) {
+        // If there is an error with the connection, stop the script and display the error.
+        die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+    }
 
-$con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
-define( 'DB_HOST', 'localhost' ); // set database host
-define( 'DB_USER', 'fag' ); // set database user
-define( 'DB_PASS', 'pfmrtszv7855z0AR' ); // set database password
-define( 'DB_NAME', 'virusnet' ); // set database name
-define( 'DISPLAY_DEBUG', false ); //display db errors?
+    //$con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
+    $con = mysqli_connect("localhost", "fag", "pfmrtszv7855z0AR", "virusnet");
+    define( 'DB_HOST', 'localhost' ); // set database host
+    define( 'DB_USER', 'fag' ); // set database user
+    define( 'DB_PASS', 'pfmrtszv7855z0AR' ); // set database password
+    define( 'DB_NAME', 'virusnet' ); // set database name
+    define( 'DISPLAY_DEBUG', false ); //display db errors?
+    $db = new DB();
 
     $sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$valgtFag'";
     $resultsFinnFag = $db->selectSQL($sqlFinnFag);

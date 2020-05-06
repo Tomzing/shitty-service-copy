@@ -25,7 +25,7 @@
     <h2 id="title">Registrer deg</h2>
 
     <div id="login">
-    <form action="phpscripts/registerBackendStudent.php" method="get" id="login">
+    <form action="phpscripts/registerBackendStudent.php" method="POST" id="login">
         <span id="#txtA">Brukernavn:</span><input id="inputA" type="text" name="brukernavn" required> </input>
         <span id="#txtB">Passord:</span><input  id="inputB" type="password" name="passord" required></input>
         <span id="#txtC">Epost:</span><input  id="inputC" type="text" name="epost" required></input>

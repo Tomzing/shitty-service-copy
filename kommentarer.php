@@ -1,6 +1,6 @@
 <?php
 include("phpscripts/mysqliDB.php");
-header("Access-Control-Allow-Origin: *");
+//header("Access-Control-Allow-Origin: *");
 
     //Hvis fag pin ikke er satt, send personen tilbake
    /* if (!isset($_SESSION['gittPin'])) {
@@ -34,38 +34,28 @@ header("Access-Control-Allow-Origin: *");
 
     echo $gittPin;
 
-    /*
-    ini_set('display_errors', 1);
+
+    /*ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-    */
+    error_reporting(E_ALL);*/
 
-    //error_reporting();
+
+    error_reporting();
         
-    //$sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
-    //$resultsFinnFag = $db->selectSQL($sqlFinnFag);
-$resultsFinnFag = [];
-$stmtA = $con->prepare('SELECT idfag,fag_navn,emnekode,foreleser,beskrivelse FROM fag WHERE idfag =  ?');
-$stmtA->bind_param('i', $gittPin);
-$stmtA->execute();
-$stmtA->bind_result($idfag,$fag_navn,$emnekode,$foreleser,$beskrivelse);
-$stmtA->fetch();
-
-
-
-
-
-
-
-
+    $sqlFinnFag = "SELECT * FROM fag WHERE idfag = '$gittPin'";
+    $resultsFinnFag = $db->selectSQL($sqlFinnFag);
 
 
     //Hvis bruker av økten er enten en foreleser eller gjest så skal alle studenter være anonyme aaaa
     if($_SESSION["typebruker"] === "gjest" or $_SESSION["typebruker"] === "foreleser") {
-        $resultsFinnKommentarer = $con->prepare('SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = ?');
-        $resultsFinnKommentarer->bind_param('i', $gittPin);
-        $resultsFinnKommentarer->execute();
-        $resultsFinnKommentarer->store_result();
+
+        $sqlFinnKommentarer = "SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = '$gittPin'";
+        $resultsFinnKommentarer = $db->selectSQL($sqlFinnKommentarer);
+
+        /* $resultsFinnKommentarer = $con->prepare('SELECT idchatlog, content, fagid, timestamp, brukertype FROM chatlog WHERE fagid = ?');
+         $resultsFinnKommentarer->bind_param('i', $gittPin);
+         $resultsFinnKommentarer->execute();
+         $resultsFinnKommentarer->store_result();*/
 
 
         $sqlFinnBruker = "SELECT id FROM student";
@@ -74,11 +64,14 @@ $stmtA->fetch();
     //Hvis bruker av økten er enten en admin eller student så skal man kunne se hvem som har sendt hva, hvis mulig
     else {
 
-        $stmtS = $con->prepare('SELECT * FROM chatlog WHERE fagid = ?');
+        $sqlFinnKommentarer = "SELECT * FROM chatlog WHERE fagid = '$gittPin'";
+        $resultsFinnKommentarer = $db->selectSQL($sqlFinnKommentarer);
+
+        /*$stmtS = $con->prepare('SELECT * FROM chatlog WHERE fagid = ?');
         $stmtS->bind_param('i', $gittPin);
         $stmtS->execute();
         $stmtS->store_result();
-        $sqlFinnKommentarer = $stmtS;
+        $sqlFinnKommentarer = $stmtS;*/
 
         $sqlFinnBruker = "SELECT id, brukernavn, epost, studieretning, kull FROM student";
         $resultsFinnBruker = $db->selectSQL($sqlFinnBruker);
@@ -91,7 +84,7 @@ $stmtA->fetch();
     $resultsFinnForeleser = $db->selectSQL($sqlFinnForeleser);
 ?>
 <script>
-    var json = <?php echo json_encode(array("resultsFinnFag"=>$resultsFinnFag), JSON_UNESCAPED_UNICODE); ?>;
+    var json = <?php echo json_encode($resultsFinnFag); ?>;
     var jsonKommentarer = <?php echo json_encode($resultsFinnKommentarer); ?>;
     var jsonFinnBruker = <?php echo json_encode($resultsFinnBruker); ?>;
     var jsonFinnForeleser = <?php echo json_encode($resultsFinnForeleser); ?>;

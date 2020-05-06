@@ -1,8 +1,15 @@
 <?php
-    /*ini_set('display_errors', 1);
+    ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    error_reporting();*/
+    error_reporting();
+
+    include("db.php");
+
+    $epost = $_POST["epost"];
+    $passord = $_POST["passord"];
+    $brukernavn = $_POST["brukernavn"];
+    $kull = $_POST["kull"];
 
 
     $DATABASE_HOST = 'localhost';
@@ -37,7 +44,7 @@
     $recaptcha = file_get_contents($recaptcha_url . '?secret=' . $recaptcha_secret . '&response=' . $recaptcha_response);
     $recaptcha = json_decode($recaptcha);
 
-    if ($recaptcha->score >= 0.5) {
+    if ($recaptcha->score <= 0.5) {
         echo 'Du feilet captchaen din dustemikkel';
         die;
     }
@@ -48,31 +55,30 @@
         die();
     }
 
-    $nameUse = $_GET['brukernavn'];
-    $studieUse = $_GET["studieretning"];
-    $kullUse = $_GET["kull"];
-    if($_GET['brukernavn'] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_GET['brukernavn'] )){
+    $nameUse = $_POST['brukernavn'];
+    $studieUse = $_POST["studieretning"];
+    $kullUse = $_POST["kull"];
+    if($_POST['brukernavn'] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_POST['brukernavn'] )){
         errormsg();
     }else{
-        if($_GET["studieretning"] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_GET["studieretning"] )){
+        if($_POST["studieretning"] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_POST["studieretning"] )){
             errormsg();
         }else{
-            if($_GET["kull"] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_GET["kull"] )){
+            if($_POST["kull"] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_POST["kull"] )){
                 errormsg();
             }
         }
     }
 
-    if (!filter_var($_GET["epost"], FILTER_VALIDATE_EMAIL)) {
+    if (!filter_var($_POST["epost"], FILTER_VALIDATE_EMAIL)) {
         echo "Eposten inneholde ugyldige tegn, eller er ikke skrevet korrekt";
     }
 
     $name = preg_replace( "/[^a-zA-Z0-9_]/", "", $nameUse);
-    $epost = $_GET["epost"];
-    $password = $_GET["passord"];
+    $epost = $_POST["epost"];
+    $password = $_POST["passord"];
     $studieretning = preg_replace( "/[^a-zA-Z0-9_]/", "", $studieUse );
     $kull = preg_replace( "/[^a-zA-Z0-9_]/", "", $kullUse );
-    echo $name;
     $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT);
 
 
