@@ -17,6 +17,19 @@ if (mysqli_connect_errno() ) {
     die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
+function getUserIpAddr(){
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+        //ip from share internet
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        //ip pass from proxy
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }else{
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
 
 $sql = 'SELECT COUNT(*) FROM aktivitet WHERE brukernavn = ? AND tid < (NOW() - INTERVAL 10 MINUTE)';
 $stmt = $conMysqli->prepare($sql);
@@ -127,8 +140,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
                             $logger->notice("IP: " . getUserIpAddr() . " student: " . $_SESSION['brukernavn'] . " har logget inn");
                             //$logger->pushHandler($handler);
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
 
                         } else {
@@ -203,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             setcookie('Brukernavn', $_POST['brukernavn']);
                             echo 'Velkommen inn, ' . $_SESSION['brukernavn'] . '!';
                             $logger->notice("IP: " . getUserIpAddr() . " foreleser: " . $_SESSION['brukernavn'] . " har logget inn");
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
 
                         }
@@ -277,7 +290,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             setcookie('Brukernavn', $_POST['brukernavn']);
                             echo 'Velkommen inn, ' . $_SESSION['brukernavn'] . '!';
                             $logger->notice("IP: " . getUserIpAddr() . " admin: " . $_SESSION['brukernavn'] . " har logget inn");
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
                         }
                         else {

@@ -3,8 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8322e5c-ee12-4f59-be8b-5b56ab08f7a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpscripts/innloggingBackend.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/innloggingBackend.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +116,7 @@
       <workItem from="1587320546734" duration="1843000" />
       <workItem from="1588168711701" duration="6454000" />
       <workItem from="1588629318863" duration="757000" />
-      <workItem from="1588630089373" duration="19152000" />
+      <workItem from="1588630089373" duration="20795000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Reset Passord and forgotpassword.php files with the right links-">
       <created>1586536851280</created>
