@@ -1,6 +1,10 @@
 <?php
 include("connectionTable.php");
 
+//ini_set('display_errors', 1);
+//ini_set('display_startup_errors', 1);
+//error_reporting(E_ALL);
+
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'foreleser';
 $DATABASE_PASS = 'ITyu8uXEVmXxA3iX';
@@ -42,7 +46,7 @@ function errormsg(){
 $nameUse = $_POST["navn"];
 
 
-if($_POST['brukernavn'] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_POST['brukernavn'] )){
+if($_POST['navn'] != preg_replace( "/[^a-zA-Z0-9_]/", "", $_POST['navn'] )){
     errormsg();
 }
 
@@ -57,8 +61,8 @@ $password = $_POST["passord"];
 $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT);
 
 
-$currentDir = getcwd();
-    $uploadDirectory = "/foreleser/bilde/";
+
+    $uploadDirectory = "/home/datasikkerhet/Public/kimtest/foreleser/bilde/";
 
     $errors = []; // Store all foreseen and unforseen errors here
 
@@ -71,9 +75,9 @@ $currentDir = getcwd();
     $imageinfo = getimagesize($_FILES['myfile']['tmp_name']);
     $fileExtension = strtolower(end(explode('.',$fileName)));
     $renamed = md5($fileName. time());
-    $uploadPath = $currentDir . $uploadDirectory . $renamed . $fileExtension;
+    $uploadPath = $uploadDirectory . $renamed . "." . $fileExtension;
 
-    $bildestring = "./foreleser/bilde/" . $renamed.$fileExtension;
+    $bildestring = "./foreleser/bilde/" . $renamed . "." . $fileExtension;
 
     if (isset($_POST['submit'])) {
 
@@ -92,12 +96,12 @@ $currentDir = getcwd();
         if ($fileSize < 0) {
             $errors[] = "This file is smaller than allowed.";
         }
-        
+
         if (empty($errors)) {
             $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
 
             if ($didUpload) {
-                echo "The file has been uploaded";
+                echo "Bruker opprettet, vidersender til forsiden.";
             } else {
                 echo "An error occurred somewhere. Try again or contact the admin";
             }
@@ -161,7 +165,7 @@ $currentDir = getcwd();
         //$stmtF->fetch();
 
         if ($stmtS->num_rows === 0 && $stmtF->num_rows === 0) {
-            echo $brukernavn. " " .$epost. " " .$password. " " .$bildestring;
+            echo "Bruker opprettet";
 
             $entry = array(
                 'brukernavn' => $brukernavn,
@@ -181,5 +185,5 @@ $currentDir = getcwd();
     else {
         echo "Fikk ikke kontakt med databasen";
     }
-
+    header("Refresh:2; url=../index.php");
 ?>

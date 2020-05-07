@@ -152,7 +152,7 @@
         $stmt->close();
         $con->close();
 
-        header("Refresh:1; url=../kommentarer.php");
+        header("Refresh:1; url=../kommentarer.php" . $_SESSION['gittPin']);
     }
 
 
