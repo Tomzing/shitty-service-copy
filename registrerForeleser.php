@@ -28,7 +28,7 @@
     <div id="login">
     <form action="phpscripts/backendRegistrerForeleser.php" method="POST"  enctype="multipart/form-data">
         <span id="#txtA">Brukernavn:</span><input id="inputA" type="text" name="navn" required></input>
-        <span id="#txtB">Passord:</span><input  id="inputB" type="password" name="passord" required></input>
+        <span id="#txtB">Passord:</span><input  id="pass" type="password" name="passord" required></input>
         <span id="#txtB">Epost</span><input  id="inputB" type="email" name="epost" required></input>
         <span>Et bilde av deg takk</span>
         <input type="file" name="myfile" id="fileToUpload">
@@ -41,8 +41,45 @@
     </div>
 
     <div id="regBox"></div>
-
+    <p lang="NO" id="feedback2">
+        You just at least have 1 big letter ( i mean capital letter)
+        and 1 number and length of at least 8 characters for password i think.
+        we do not accept less secure password maybe baby
+    </p>
     <p id="feedback"> </p>
+    <script>
+        var sikkert = false;
+        var code = document.getElementById("pass");
+        var display = document.getElementsByClassName("feedback2");
+        code.addEventListener("keyup", function() {
+            checkpassword(code.value);
+        });
+        document.getElementById("confirm").onmouseover = beskjed;
+        function beskjed(){
+            if(!sikkert)
+                alert("you password is not safe enough yet, you will get a message in the top with an alertbox when the password is good and strong enough")
+        }
+
+
+
+
+        function checkpassword(password) {
+            sikkert = false;
+            var strength = 0;
+            if (password.match(/[a-z]+/)) {
+                if (password.match(/[A-Z]+/)) {
+                    if (password.match(/[0-9]+/)) {
+                        if(password.length > 7){
+                            alert("password is now safe enough, dont make any changes!!!!")
+                            sikkert = true;
+                        }
+
+                    }
+                }
+            }
+
+        }
+    </script>
 
 </div>
 

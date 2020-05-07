@@ -9,9 +9,8 @@
 $uppercase = preg_match('@[A-Z]@', $_POST['passord']);
 $lowercase = preg_match('@[a-z]@', $_POST['passord']);
 $number    = preg_match('@[0-9]@', $_POST['passord']);
-$specialChars = preg_match('@[^\w]@', $_POST['passord']);
 
-if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($_POST['passord']) < 8) {
+if(!$uppercase || !$lowercase || !$number || strlen($_POST['passord']) < 8) {
     die("Ditt passord møter ikke kravene for passord");
 }else{
     echo 'Strong password.';
