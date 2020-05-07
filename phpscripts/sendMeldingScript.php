@@ -38,15 +38,14 @@
     $DATABASE_PASS = 'pfmrtszv7855z0AR';
     $DATABASE_NAME = 'virusnet';
     // Try and connect using the info above.
-    $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-    $conMysqli->set_charset("utf8");
+    $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+    $con->set_charset("utf8");
     if (mysqli_connect_errno() ) {
         // If there is an error with the connection, stop the script and display the error.
         die ('Failed to connect to MySQL: ' . mysqli_connect_error());
     }
 
     //$con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
-    $con = mysqli_connect("localhost", "fag", "pfmrtszv7855z0AR", "virusnet");
     define( 'DB_HOST', 'localhost' ); // set database host
     define( 'DB_USER', 'fag' ); // set database user
     define( 'DB_PASS', 'pfmrtszv7855z0AR' ); // set database password
@@ -73,14 +72,13 @@
         $DATABASE_PASS = 'vJ4V04Jd91j8ggLB';
         $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-        $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-        $conMysqli->set_charset("utf8");
+        $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+        $con->set_charset("utf8");
         if (mysqli_connect_errno() ) {
             // If there is an error with the connection, stop the script and display the error.
             die ('Failed to connect to MySQL: ' . mysqli_connect_error());
         }
 
-        $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
         define( 'DB_HOST', 'localhost' ); // set database host
         define( 'DB_USER', 'chatlog' ); // set database user
         define( 'DB_PASS', 'vJ4V04Jd91j8ggLB' ); // set database password
@@ -125,14 +123,12 @@
         $DATABASE_PASS = 'vJ4V04Jd91j8ggLB';
         $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-        $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-        $conMysqli->set_charset("utf8");
+        $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+        $con->set_charset("utf8");
         if (mysqli_connect_errno() ) {
             // If there is an error with the connection, stop the script and display the error.
             die ('Failed to connect to MySQL: ' . mysqli_connect_error());
         }
-
-        $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
         define( 'DB_HOST', 'localhost' ); // set database host
         define( 'DB_USER', 'chatlog' ); // set database user
         define( 'DB_PASS', 'vJ4V04Jd91j8ggLB' ); // set database password

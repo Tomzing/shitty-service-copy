@@ -17,14 +17,13 @@
     $DATABASE_PASS = 'IA1vz6TNpdya6X8G';
     $DATABASE_NAME = 'virusnet';
     // Try and connect using the info above.
-    $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-    $conMysqli->set_charset("utf8");
+    $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+    $con->set_charset("utf8");
     if (mysqli_connect_errno() ) {
         // If there is an error with the connection, stop the script and display the error.
         die ('Failed to connect to MySQL: ' . mysqli_connect_error());
     }
 
-    $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
     define( 'DB_HOST', 'localhost' ); // set database host
     define( 'DB_USER', 'student' ); // set database user
     define( 'DB_PASS', 'IA1vz6TNpdya6X8G' ); // set database password
