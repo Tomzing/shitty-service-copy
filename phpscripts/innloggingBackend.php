@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
     session_start();
 
@@ -26,30 +23,30 @@ $DATABASE_USER = 'aktivitet';
 $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
 $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 
+$conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if (mysqli_connect_errno() ) {
     // If there is an error with the connection, stop the script and display the error.
     die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-$sql = 'SELECT COUNT(*)
+$sql = 'SELECT id,brukernavn,aktivitet,tid
         FROM aktivitet 
-        WHERE id 
+        WHERE brukernavn = ?
+        AND aktivitet = "loginfail"
+        AND id
         IN( SELECT id 
             FROM aktivitet 
             WHERE tid > (NOW() - INTERVAL 10 MINUTE))';
-
-$stmt = $con->prepare($sql);
+$stmt = $conMysqli->prepare($sql);
+$stmt->bind_param("s",$_POST["brukernavn"]);
 $stmt->execute();
 $stmt->store_result();
-
-
-if($stmt->num_rows >= 5) die('Nå har du forsøkt å logge på for mange ganger. Ta deg et velfortjent runk før skrivekrampa tar deg.');
+if($stmt->num_rows >= 5) die('Nå har du forsøkt å logge på for mange ganger.');
 
 $stmt->free_result();
 $stmt->close();
-$con->close();
+$conMysqli->close();
     /*ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
