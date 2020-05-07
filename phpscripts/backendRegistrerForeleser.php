@@ -1,9 +1,9 @@
 <?php
 include("connectionTable.php");
 
-//ini_set('display_errors', 1);
-//ini_set('display_startup_errors', 1);
-//error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 $uppercase = preg_match('@[A-Z]@', $_POST['passord']);
 $lowercase = preg_match('@[a-z]@', $_POST['passord']);
 $number    = preg_match('@[0-9]@', $_POST['passord']);
@@ -66,7 +66,7 @@ $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT)
 
 
 
-    $uploadDirectory = "/home/datasikkerhet/Public/kimtest/foreleser/bilde/";
+    $uploadDirectory = "/home/datasikkerhet/Public/foreleser/bilde/";
 
     $errors = []; // Store all foreseen and unforseen errors here
 
@@ -177,5 +177,5 @@ $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT)
     else {
         echo "Fikk ikke kontakt med databasen";
     }
-    header("Refresh:2; url=../index.php");
+    //header("Refresh:2; url=../index.php");
 ?>
