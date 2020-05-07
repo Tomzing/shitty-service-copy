@@ -1,9 +1,10 @@
 <?php
-include("connectionTable.php");
+//include("connectionTable.php");
+include("db.php");
 
-ini_set('display_errors', 1);
+/*ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+error_reporting(E_ALL);*/
 $uppercase = preg_match('@[A-Z]@', $_POST['passord']);
 $lowercase = preg_match('@[a-z]@', $_POST['passord']);
 $number    = preg_match('@[0-9]@', $_POST['passord']);
@@ -25,6 +26,12 @@ if (mysqli_connect_errno() ) {
     // If there is an error with the connection, stop the script and display the error.
     die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
+define( 'DB_HOST', 'localhost' ); // set database host
+define( 'DB_USER', 'foreleser' ); // set database user
+define( 'DB_PASS', 'ITyu8uXEVmXxA3iX'); // set database password
+define( 'DB_NAME', 'virusnet' ); // set database name
+define( 'DISPLAY_DEBUG', false ); //display db errors?
+
 
 
 
