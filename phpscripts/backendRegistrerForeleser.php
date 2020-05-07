@@ -101,7 +101,7 @@ $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT)
             $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
 
             if ($didUpload) {
-                echo "Bruker opprettet, vidersender til forsiden.";
+                echo "Success";
             } else {
                 echo "An error occurred somewhere. Try again or contact the admin";
             }
