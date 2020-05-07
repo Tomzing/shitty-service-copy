@@ -4,6 +4,16 @@ include("connectionTable.php");
 //ini_set('display_errors', 1);
 //ini_set('display_startup_errors', 1);
 //error_reporting(E_ALL);
+$uppercase = preg_match('@[A-Z]@', $_POST['passord']);
+$lowercase = preg_match('@[a-z]@', $_POST['passord']);
+$number    = preg_match('@[0-9]@', $_POST['passord']);
+$specialChars = preg_match('@[^\w]@', $_POST['passord']);
+
+if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($_POST['passord']) < 8) {
+    die("Ditt passord møter ikke kravene for passord");
+}else{
+    echo 'Strong password.';
+}
 
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'foreleser';
@@ -115,19 +125,13 @@ $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT)
         $DATABASE_PASS = 'IA1vz6TNpdya6X8G';
         $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-        $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-        $conMysqli->set_charset("utf8");
+        $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+        $con->set_charset("utf8");
         if (mysqli_connect_errno() ) {
             // If there is an error with the connection, stop the script and display the error.
             die ('Failed to connect to MySQL: ' . mysqli_connect_error());
         }
 
-        $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
-        define( 'DB_HOST', 'localhost' ); // set database host
-        define( 'DB_USER', 'student' ); // set database user
-        define( 'DB_PASS', 'IA1vz6TNpdya6X8G' ); // set database password
-        define( 'DB_NAME', 'virusnet' ); // set database name
-        define( 'DISPLAY_DEBUG', false ); //display db errors?
         $stmtS = $con->prepare('SELECT id, brukernavn FROM student WHERE brukernavn = ?');
         $stmtS->bind_param('s', $brukernavn);
         $stmtS->execute();
@@ -140,19 +144,13 @@ $password = password_hash("etSaltSomIkkeKrenkerNoen".$password, PASSWORD_BCRYPT)
         $DATABASE_PASS = 'ITyu8uXEVmXxA3iX';
         $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-        $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-        $conMysqli->set_charset("utf8");
+        $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+        $con->set_charset("utf8");
         if (mysqli_connect_errno() ) {
             // If there is an error with the connection, stop the script and display the error.
             die ('Failed to connect to MySQL: ' . mysqli_connect_error());
         }
 
-        $con = mysqli_connect("localhost", "root", "1337hackermangruppe09", "virusnet");
-        define( 'DB_HOST', 'localhost' ); // set database host
-        define( 'DB_USER', 'foreleser' ); // set database user
-        define( 'DB_PASS', 'ITyu8uXEVmXxA3iX' ); // set database password
-        define( 'DB_NAME', 'virusnet' ); // set database name
-        define( 'DISPLAY_DEBUG', false ); //display db errors?
         $stmtF = $con->prepare('SELECT id, brukernavn FROM foreleser WHERE brukernavn = ?');
         $stmtF->bind_param('s', $brukernavn);
         $stmtF->execute();

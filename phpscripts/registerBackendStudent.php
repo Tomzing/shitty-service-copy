@@ -4,6 +4,19 @@
     error_reporting(E_ALL);
     error_reporting();
 
+
+
+$uppercase = preg_match('@[A-Z]@', $_POST['passord']);
+$lowercase = preg_match('@[a-z]@', $_POST['passord']);
+$number    = preg_match('@[0-9]@', $_POST['passord']);
+$specialChars = preg_match('@[^\w]@', $_POST['passord']);
+
+if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($_POST['passord']) < 8) {
+    die("Ditt passord møter ikke kravene for passord");
+}else{
+    echo 'Strong password.';
+}
+
     include("db.php");
 
     $epost = $_POST["epost"];
@@ -89,25 +102,43 @@ if (isset($name)) {
         $stmtS->store_result();
         //$stmtS->fetch();
 
-        $stmtF = $con->prepare('SELECT id, brukernavn FROM foreleser WHERE brukernavn = ?');
-        $stmtF->bind_param('s', $name);
-        $stmtF->execute();
-        $stmtF->store_result();
-        //$stmtF->fetch();
 
-        if ($stmtS->num_rows === 0 && $stmtF->num_rows === 0) {
-            echo $name." ".$epost." ".$password." ".$studieretning." ".$kull;
 
-            $entry = array(
-                'brukernavn' => $name,
-                'epost' => $epost,
-                'passord' => $password,
-                'studieretning' => $studieretning,
-                'kull' => $kull
-            );
-        
-            $database = new DB();
-            $add_query = $database->insert( 'student', $entry );
+        if ($stmtS->num_rows === 0 ) {
+            $con->close();
+            $DATABASE_HOST = 'localhost';
+            $DATABASE_USER = 'foreleser';
+            $DATABASE_PASS = 'ITyu8uXEVmXxA3iX';
+            $DATABASE_NAME = 'virusnet';
+            // Try and connect using the info above.
+            $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+            $con->set_charset("utf8");
+            if (mysqli_connect_errno() ) {
+                // If there is an error with the connection, stop the script and display the error.
+                die ('Failed to connect to MySQL: ' . mysqli_connect_error());
+            }
+
+            $stmtF = $con->prepare('SELECT id, brukernavn FROM foreleser WHERE brukernavn = ?');
+            $stmtF->bind_param('s', $name);
+            $stmtF->execute();
+            $stmtF->store_result();
+            //$stmtF->fetch();
+
+            if($stmtF->num_rows === 0 ){
+                echo $name." ".$epost." ".$password." ".$studieretning." ".$kull;
+
+                $entry = array(
+                    'brukernavn' => $name,
+                    'epost' => $epost,
+                    'passord' => $password,
+                    'studieretning' => $studieretning,
+                    'kull' => $kull
+                );
+
+                $database = new DB();
+                $add_query = $database->insert( 'student', $entry );
+            }
+
         }
         //Har ikke endret på den opprinnelige spørringen som var laget for å legge ny bruker i database
         else {
