@@ -1,6 +1,5 @@
 <?php
 include("connectionTable.php");
-header("Access-Control-Allow-Origin: *");
 
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'foreleser';
@@ -63,20 +62,25 @@ $currentDir = getcwd();
 
     $errors = []; // Store all foreseen and unforseen errors here
 
-    $fileExtensions = ['jpeg','jpg','png']; // Get all the file extensions
+    $fileExtensions = ['jpeg','jpg','png']; // Whitelist of allowed file extensions
 
     $fileName = $_FILES['myfile']['name'];
     $fileSize = $_FILES['myfile']['size'];
     $fileTmpName  = $_FILES['myfile']['tmp_name'];
     $fileType = $_FILES['myfile']['type'];
-
+    $imageinfo = getimagesize($_FILES['myfile']['tmp_name']);
     $fileExtension = strtolower(end(explode('.',$fileName)));
+    $renamed = md5($fileName. time());
+    $uploadPath = $currentDir . $uploadDirectory . $renamed . $fileExtension;
 
-    $uploadPath = $currentDir . $uploadDirectory . basename($fileName);
-
-    $bildestring = "./foreleser/bilde/" . basename($fileName);
+    $bildestring = "./foreleser/bilde/" . $renamed.$fileExtension;
 
     if (isset($_POST['submit'])) {
+
+        if($imageinfo['mime'] != 'image/gif' && $imageinfo['mime'] != 'image/jpeg' && isset($imageinfo))
+        {
+            $errors[] = 'Sorry, we only accept GIF and JPEG images\n';
+        }
 
         if (! in_array($fileExtension,$fileExtensions)) {
             $errors[] = "This file extension is not allowed. Please upload a JPEG or PNG file";
@@ -85,12 +89,15 @@ $currentDir = getcwd();
         if ($fileSize > 2000000) {
             $errors[] = "This file is more than 2MB. Sorry, it has to be less than or equal to 2MB";
         }
-
+        if ($fileSize < 0) {
+            $errors[] = "This file is smaller than allowed.";
+        }
+        
         if (empty($errors)) {
             $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
 
             if ($didUpload) {
-                echo "The file " . basename($fileName) . " has been uploaded";
+                echo "The file has been uploaded";
             } else {
                 echo "An error occurred somewhere. Try again or contact the admin";
             }

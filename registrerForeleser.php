@@ -31,7 +31,7 @@
         <span id="#txtB">Passord:</span><input  id="inputB" type="password" name="passord" required></input>
         <span id="#txtB">Epost</span><input  id="inputB" type="email" name="epost" required></input>
         <span>Et bilde av deg takk</span>
-        <input type="file" name="file" id="fileToUpload">
+        <input type="file" name="myfile" id="fileToUpload">
         <input type="hidden" name="recaptcha_response" id="recaptchaResponse">
         <button id="confirm" name="submit" type="submit">Bekreft</button> <a id="reg" href="hvemErDu.php">Tilbake</a>
     </form>

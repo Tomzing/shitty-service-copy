@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d8322e5c-ee12-4f59-be8b-5b56ab08f7a4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendMeldingScript.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/sendSvarScript.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/phpscripts/backendRegistrerForeleser.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/backendRegistrerForeleser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrerForeleser.php" beforeDir="false" afterPath="$PROJECT_DIR$/registrerForeleser.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,6 +118,7 @@
       <workItem from="1588168711701" duration="6454000" />
       <workItem from="1588629318863" duration="757000" />
       <workItem from="1588630089373" duration="19152000" />
+      <workItem from="1588803427749" duration="6079000" />
     </task>
     <task id="LOCAL-00001" summary="Updated Reset Passord and forgotpassword.php files with the right links-">
       <created>1586536851280</created>
@@ -321,11 +322,12 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1588629859284" />
-    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1588630091432">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2501" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1588803428098">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588630091432" />
     <state x="775" y="300" key="com.intellij.ide.util.TipDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1586958985430" />
+    <state x="2501" y="300" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588803428098" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1584306589290">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
