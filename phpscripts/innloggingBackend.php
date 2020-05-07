@@ -5,31 +5,51 @@ error_reporting(E_ALL);
 
     session_start();
 
+
+
+function getUserIpAddr(){
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+        //ip from share internet
+        $ip = $_SERVER['HTTP_CLIENT_IP'];
+    }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+        //ip pass from proxy
+        $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    }else{
+        $ip = $_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+
+
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'aktivitet';
 $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
 $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-$conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-$conMysqli->set_charset("utf8");
+$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+
 if (mysqli_connect_errno() ) {
     // If there is an error with the connection, stop the script and display the error.
     die ('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
+$sql = 'SELECT COUNT(*)
+        FROM aktivitet 
+        WHERE id 
+        IN( SELECT id 
+            FROM aktivitet 
+            WHERE tid > (NOW() - INTERVAL 10 MINUTE))';
 
-$sql = 'SELECT COUNT(*) FROM aktivitet WHERE brukernavn = ? AND tid < (NOW() - INTERVAL 10 MINUTE)';
-$stmt = $conMysqli->prepare($sql);
-$stmt->bind_param("b", $_POST["brukernavn"]);
+$stmt = $con->prepare($sql);
 $stmt->execute();
 $stmt->store_result();
-$nrows = $stmt->num_rows;
+
+
+if($stmt->num_rows >= 5) die('Nå har du forsøkt å logge på for mange ganger. Ta deg et velfortjent runk før skrivekrampa tar deg.');
+
+$stmt->free_result();
 $stmt->close();
-
-
-if($nrows >= 5) die('Nå har du forsøkt å logge på for mange ganger. Ta deg et velfortjent runk før skrivekrampa tar deg.');
-$conMysqli->close();
-
+$con->close();
     /*ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
@@ -127,8 +147,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
 
                             $logger->notice("IP: " . getUserIpAddr() . " student: " . $_SESSION['brukernavn'] . " har logget inn");
                             //$logger->pushHandler($handler);
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
 
                         } else {
@@ -142,15 +162,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
                             $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-                            $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-                            $conMysqli->set_charset("utf8");
+                            $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+
                             if (mysqli_connect_errno() ) {
                                 // If there is an error with the connection, stop the script and display the error.
                                 die ('Failed to connect to MySQL: ' . mysqli_connect_error());
                             }
                             $aktivitet = "loginfail";
                             $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
-                            $stmt = $conMysqli->prepare($sql);
+                            $stmt = $con->prepare($sql);
                             $stmt->bind_param("ss",$_POST["brukernavn"],$aktivitet);
 
                             $stmt->execute();
@@ -203,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             setcookie('Brukernavn', $_POST['brukernavn']);
                             echo 'Velkommen inn, ' . $_SESSION['brukernavn'] . '!';
                             $logger->notice("IP: " . getUserIpAddr() . " foreleser: " . $_SESSION['brukernavn'] . " har logget inn");
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
 
                         }
@@ -216,15 +236,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
                             $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-                            $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-                            $conMysqli->set_charset("utf8");
+                            $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                            $con->set_charset("utf8");
                             if (mysqli_connect_errno() ) {
                                 // If there is an error with the connection, stop the script and display the error.
                                 die ('Failed to connect to MySQL: ' . mysqli_connect_error());
                             }
                             $aktivitet = "loginfail";
                             $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
-                            $stmt = $conMysqli->prepare($sql);
+                            $stmt = $con->prepare($sql);
                             $stmt->bind_param("ss",$_POST["brukernavn"],$aktivitet);
 
                             $stmt->execute();
@@ -277,7 +297,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             setcookie('Brukernavn', $_POST['brukernavn']);
                             echo 'Velkommen inn, ' . $_SESSION['brukernavn'] . '!';
                             $logger->notice("IP: " . getUserIpAddr() . " admin: " . $_SESSION['brukernavn'] . " har logget inn");
-                            echo "<a href='innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
+                            echo "<a href='/innloggetMeny.php'>Trykk her om du ikke blir videreført :)</a>";
                             header("Refresh:2; url=../innloggetMeny.php");
                         }
                         else {
@@ -289,15 +309,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['recaptcha_response'])
                             $DATABASE_PASS = 'Ss0GXbXk4UcMkQxG';
                             $DATABASE_NAME = 'virusnet';
 // Try and connect using the info above.
-                            $conMysqli = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-                            $conMysqli->set_charset("utf8");
+                            $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
+                            $conM->set_charset("utf8");
                             if (mysqli_connect_errno() ) {
                                 // If there is an error with the connection, stop the script and display the error.
                                 die ('Failed to connect to MySQL: ' . mysqli_connect_error());
                             }
                             $aktivitet = "loginfail";
                             $sql = "INSERT INTO aktivitet (brukernavn,aktivitet) VALUES(?,?)";
-                            $stmt = $conMysqli->prepare($sql);
+                            $stmt = $con->prepare($sql);
                             $stmt->bind_param("ss",$_POST["brukernavn"],$aktivitet);
 
                             $stmt->execute();
