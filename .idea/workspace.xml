@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d8322e5c-ee12-4f59-be8b-5b56ab08f7a4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/phpscripts/backendRegistrerForeleser.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/backendRegistrerForeleser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/registrerForeleser.php" beforeDir="false" afterPath="$PROJECT_DIR$/registrerForeleser.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/phpscripts/innloggingBackend.php" beforeDir="false" afterPath="$PROJECT_DIR$/phpscripts/innloggingBackend.php" afterDir="false" />
+>>>>>>> 0a5474d0ca3d3d70fe8c61404feeef0ea6f38521
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
+  </component>
+  <component name="PhpDebugGeneral" listening_started="true" />
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
+      <path value="$PROJECT_DIR$/vendor/graylog2/gelf-php" />
+      <path value="$PROJECT_DIR$/vendor/psr/log" />
+      <path value="$PROJECT_DIR$/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/vendor/composer" />
+    </include_path>
+  </component>
+  <component name="ProjectId" id="1WDyKAXaZqQQMbIRefmbww4bnln" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1587320421076" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\laragon\www\shitty-service-copy\phpscripts" />
+      <recent name="C:\Users\thoma\OneDrive\Documents\GitHub\shitty-service\phpscripts" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d8322e5c-ee12-4f59-be8b-5b56ab08f7a4" name="Default Changelist" comment="" />
+      <created>1578698393729</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1578698393729</updated>
+      <workItem from="1578698394955" duration="653000" />
+      <workItem from="1578907755438" duration="45215000" />
+      <workItem from="1579086845670" duration="587000" />
+      <workItem from="1579892579912" duration="7131000" />
+      <workItem from="1579979139204" duration="4533000" />
+      <workItem from="1580300209324" duration="1690000" />
+      <workItem from="1583925480843" duration="5565000" />
+      <workItem from="1584302243064" duration="4089000" />
+      <workItem from="1586449396530" duration="6847000" />
+      <workItem from="1586536381308" duration="45000" />
+      <workItem from="1586536454342" duration="1214000" />
+      <workItem from="1586608977678" duration="600000" />
+      <workItem from="1586790220153" duration="123000" />
+      <workItem from="1586790378940" duration="4624000" />
+      <workItem from="1586958983836" duration="602000" />
+      <workItem from="1587053321524" duration="328000" />
+      <workItem from="1587313616648" duration="6900000" />
+      <workItem from="1587320546734" duration="1843000" />
+      <workItem from="1588168711701" duration="6454000" />
+      <workItem from="1588629318863" duration="757000" />
+<<<<<<< HEAD
+      <workItem from="1588630089373" duration="19152000" />
+      <workItem from="1588803427749" duration="6079000" />
+=======
+      <workItem from="1588630089373" duration="20795000" />
+      <workItem from="1588808932178" duration="2572000" />
+      <workItem from="1588811524142" duration="609000" />
+>>>>>>> 0a5474d0ca3d3d70fe8c61404feeef0ea6f38521
+    </task>
+    <task id="LOCAL-00001" summary="Updated Reset Passord and forgotpassword.php files with the right links-">
+      <created>1586536851280</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586536851280</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Updated Reset Passord and forgotpassword.php files with the right links-">
+      <created>1586537005604</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586537005604</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587313047890</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1587313047890</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587313674440</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1587313674441</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587314482227</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1587314482227</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587314907146</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587314907146</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587315392646</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587315392646</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587316448979</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1587316448979</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587316659478</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1587316659478</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587316949825</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1587316949825</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587317239094</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1587317239094</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587317310855</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1587317310855</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587317556263</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1587317556263</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587317837943</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1587317837943</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587318370873</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1587318370873</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587318610473</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1587318610473</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587319128828</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1587319128828</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587319485163</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1587319485163</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587319943897</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1587319943897</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587320236449</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1587320236449</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587320913542</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1587320913542</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Updated Kommentarer.php med riktig Prepared Statements.">
+      <created>1587321565225</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1587321565225</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Updated Reset Passord and forgotpassword.php files with the right links-" />
+    <MESSAGE value="Updated Kommentarer.php med riktig Prepared Statements." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Kommentarer.php med riktig Prepared Statements." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="361" y="72" key="#Inspections" timestamp="1588629965957">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="72" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1588629965957" />
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1584463249680">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="68" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1584463249680" />
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588770367909">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="160" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1588770367909" />
+    <state x="516" y="260" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1588630118611">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="516" y="260" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1536.824@0.0.1536.824" timestamp="1588630118611" />
+    <state x="549" y="168" key="FileChooserDialogImpl" timestamp="1588811532658">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="168" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1588811532658" />
+    <state x="492" y="228" key="NewPhpClassDialog" timestamp="1584467193641">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="492" y="228" key="NewPhpClassDialog/0.0.1536.824@0.0.1536.824" timestamp="1584467193641" />
+    <state x="1007" y="425" key="NewPhpFileDialog" timestamp="1587052598903">
+      <screen x="0" y="0" width="2560" height="1040" />
+    </state>
+    <state x="1007" y="425" key="NewPhpFileDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1587052598903" />
+    <state x="298" y="29" key="SettingsEditor" timestamp="1588630074409">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="298" y="29" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1588630074409" />
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1588629859284">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1536.824@0.0.1536.824" timestamp="1588629859284" />
+<<<<<<< HEAD
+    <state x="2501" y="300" key="com.intellij.ide.util.TipDialog" timestamp="1588803428098">
+      <screen x="1920" y="0" width="1920" height="1040" />
+=======
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1588811523646">
+      <screen x="0" y="0" width="1536" height="824" />
+>>>>>>> 0a5474d0ca3d3d70fe8c61404feeef0ea6f38521
+    </state>
+    <state x="465" y="238" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588811523646" />
+    <state x="775" y="300" key="com.intellij.ide.util.TipDialog/0.0.2560.1040@0.0.2560.1040" timestamp="1586958985430" />
+    <state x="2501" y="300" key="com.intellij.ide.util.TipDialog/1920.0.1920.1040/0.0.1920.1040@1920.0.1920.1040" timestamp="1588803428098" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1584306589290">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1584306589290" />
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup" timestamp="1584318182364">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="498" y="178" width="672" height="538" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1584318182364" />
+  </component>
+</project>
