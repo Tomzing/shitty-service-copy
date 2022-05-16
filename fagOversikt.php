@@ -56,6 +56,7 @@ $resultsFinnFag = $db->selectSQL($sqlFinnFag);
             //document.getElementById("innhold").innerHTML += "<a href='" + linkTilFag + "'>" + navnFag + "</a>";
         }
     </script>
+    
 
 
 </body>
